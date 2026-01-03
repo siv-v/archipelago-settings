@@ -1,0 +1,193 @@
+﻿# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: SivSM
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Siv's default Super Metroid settings. Updated 2025-11-30.
+
+game: Super Metroid
+requires:
+  version: 0.6.3 # Version of Archipelago required for this yaml to work as expected.
+
+Super Metroid:
+  # Game Options
+  progression_balancing: normal
+
+  # **Full:** ensure everything can be reached and acquired.
+  # **Minimal:** ensure what is needed to reach your goal can be acquired.
+  accessibility:
+    full: 80
+    minimal: 20
+
+  start_inventory_removes_from_pool: 'false'
+
+  # see varia randomizer page for valid presets
+  preset: regular
+  
+  # see varia randomizer page for locations
+  start_location: landing_site
+
+  remote_items: 'true'
+  
+  # disable, enable, enable_survive (reserve tanks can save you)
+  death_link: disable
+  
+  # difficulty of techniques - see varia randomizer for what these are
+  max_difficulty:
+    medium: 75
+    hard: 25
+
+  morph_placement: early
+  hide_items: 'false'
+  strict_minors: 'false'
+  
+  # 10 to 90, 30 default
+  missile_qty: random-range-20-40
+
+  # 10 to 90, 20 default
+  super_qty: random-range-10-30
+
+  # 10 to 90, 10 default
+  power_bomb_qty: random-range-10-15
+
+  # 7 - 100, default 100
+  minor_qty: 100 
+  
+  # ultra_sparse (0-1), sparse (4-6), medium (8-12), vanilla (18)
+  energy_qty: vanilla
+
+  # 'off', light, or full
+  area_randomization: 'off'
+  area_layout: 'true'
+
+  # randomizes locked doors & adds doors that require certain beams
+  doors_colors_rando: 'true'
+
+  # some doors can't open
+  allow_grey_doors:
+    'false': 90
+    'true': 10
+
+  # Randomize Golden 4 bosses access doors using bidirectional access portals.
+  boss_randomization:
+    'false': 33
+    'true': 67
+
+  escape_rando: 'false'
+  remove_escape_enemies: 'true'
+  fun_combat: 'false'
+  fun_movement: 'false'
+  fun_suits: 'false'
+  layout_patches: 'true'
+  varia_tweaks: 'true'
+  nerfed_charge: 'true'
+  
+  gravity_behaviour: progressive
+
+  elevators_speed: 'true'
+  fast_doors: 'true'
+  spin_jump_restart: 'true'
+  rando_speed: 'true'
+  infinite_space_jump: 'true'
+  refill_before_save: 'true'
+  hud: 'true'
+  animals: 'false'
+  no_music: 'false'
+  random_music: 'false'
+
+  custom_preset:
+    # see https://randommetroidsolver.pythonanywhere.com/presets for detailed info on each preset settings
+    # knows: each skill (know) has a pair [can use, perceived difficulty using one of 1, 5, 10, 25, 50 or 100 each one
+    #        matching a max_difficulty]
+    # settings: hard rooms, hellruns and bosses settings
+    # controller: predefined controller mapping and moon walk setting
+    controller: {}
+    knows: {}
+    settings: {}
+
+  varia_custom_preset:
+    # use an entry from the preset list on https://randommetroidsolver.pythonanywhere.com/presets
+    {}
+
+  # vanilla: regular vanilla Tourian
+  # fast: speed up Tourian to skip Metroids, Zebetites, and all cutscenes (including Mother Brain 3 fight). Golden Four statues are replaced by an invincible Gadora until all objectives are completed.
+  # disabled: skip Tourian entirely, ie. escape sequence is triggered as soon as all objectives are completed.
+  tourian: disabled
+
+  custom_objective: false
+  custom_objective_list:
+    # If ""Custom objectives"" is enabled, "Custom Objective count" will be used to pick an amount of objective from the list.
+    # This setting is ignored if ""Custom objectives"" is set to false.
+    # Note: If you leave the list empty no objective is required to access Tourian, ie. it's open.
+    # Note: See the Tourian parameter to enable fast Tourian or trigger the escape when all objectives are completed.
+    # Note: Current percentage of collected items is displayed in the inventory pause menu.
+    # Note: Collect 100% items is excluded by default as it requires you to complete all the objectives.
+    # Note: In AP, Items% and areas objectives are counted toward location checks, not items collected or received, except for "collect all upgrades"
+    # 
+    # Format as a comma-separated list of objective names: ["kill three G4", "collect 75% items"] or ["random"] to specify the whole list except
+    # "collect 100% items" and "nothing". The default is ["random"]. A full list of supported objectives can be found at:
+    # https://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/sm/variaRandomizer/utils/objectives.py
+    ['random']
+
+  custom_objective_count:
+    # By default you need to complete 4 objectives from the list to access Tourian. You can choose between 1 and 5. This setting is ignored if
+    # ""Custom objectives"" is set to false.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 5
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  objective:
+    # If ""Custom objectives"" is disabled, choose which objectives are required to sink the Golden Four statue and to open access to Tourian.
+    # You can choose from 0 to 5 objectives. Up to the first 5 objectives from the list will be selected.
+    # Note: If you leave the list empty no objective is required to access Tourian, ie. it's open.
+    # Note: See the Tourian parameter to enable fast Tourian or trigger the escape when all objectives are completed.
+    # Note: Current percentage of collected items is displayed in the inventory pause menu.
+    # Note: In AP, Items% and areas objectives are counted toward location checks, not items collected or received, except for "collect all upgrades"
+    # 
+    # Format as a comma-separated list of objective names: ["kill three G4", "collect 75% items"]. The default is ["kill all G4"].
+    # A full list of supported objectives can be found at:
+    # https://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/sm/variaRandomizer/utils/objectives.py
+    ['kill all G4']
+
+  relaxed_round_robin_cf: 'true'
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []

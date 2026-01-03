@@ -1,0 +1,410 @@
+﻿# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: SivHades
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Siv's default Hades settings. Updated 2025-07-15.
+
+game: Hades
+requires:
+  version: 0.5.0 # Version of Archipelago required for this yaml to work as expected.
+
+Hades:
+  progression_balancing: normal
+  accessibility: items
+
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  initial_weapon:
+    # Chose your initial weapon. Note you are not be able to equip the sword in the weapon hub in WeaponSanity
+    sword: 1
+    bow: 1
+    spear: 1
+    shield: 1
+    fist: 1
+    gun: 1
+
+  # room_based, score_based, or room_weapon_based
+  location_system: score_based
+  
+  # 72 to 1000, 150 default
+  score_rewards_amount: random-range-middle-50-300
+  keepsakesanity: true
+  weaponsanity: true
+  hidden_aspectsanity: true
+  storesanity: true
+  fatesanity: false
+  
+  # 1 to 20, default 1
+  hades_defeats_needed: random-range-3-5
+
+  # 1 to 6, default 1
+  weapons_clears_needed: 1
+
+  # 0 to 23, default 0
+  keepsakes_needed: 0
+
+  # 0 to 35, default 0
+  fates_needed: 0
+
+  # reverse_heat: specific Pacts in the pool
+  # minimal_heat: lowering Heat items in the pool
+  # vanilla_heat: heat not required
+  heat_system:
+    reverse_heat: 40
+    minimal_heat: 40
+    vanillla_heat: 20
+
+  # 0 to 5, default 3
+  hard_labor_pact_amount: 3
+
+  # 0 to 4, default 2
+  lasting_consequences_pact_amount: 4
+  convenience_fee_pact_amount:
+    # Choose the amount of Convenience Fee pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 2
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  jury_summons_pact_amount:
+    # Choose the amount of Jury Summons pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 3
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  extreme_measures_pact_amount:
+    # Choose the amount of Extreme Measures pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 4
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  calisthenics_program_pact_amount:
+    # Choose the amount of Calisthenics Program pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 2
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  benefits_package_pact_amount:
+    # Choose the amount of Benefits Package pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 2
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  middle_management_pact_amount:
+    # Choose the amount of Middle Management pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  underworld_customs_pact_amount:
+    # Choose the amount of Underworld Customs pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  forced_overtime_pact_amount:
+    # Choose the amount of Forced Overtime pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 2
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  heightened_security_pact_amount:
+    # Choose the amount of Heightened Security pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  routine_inspection_pact_amount:
+    # Choose the amount of Routine Inspection pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 4
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  damage_control_pact_amount:
+    # Choose the amount of Damage Control pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 2
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  approval_process_pact_amount:
+    # Choose the amount of Approval Process pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 2
+    1: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  tight_deadline_pact_amount:
+    # Choose the amount of Tight Deadline pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 3
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  personal_liability_pact_amount:
+    # Choose the amount of Personal Liability pacts in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 1
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  darkness_pack_value:
+    # Choose the value(amount of darkness) of each darkness pack in the pool. 
+    # If set to 0 Darkness will not appear in the pool.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10000
+    500: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  keys_pack_value:
+    # Choose the value(amount of Keys) of each Keys pack in the pool.
+    # If set to 0 Keys will not appear in the pool
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 500
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  gemstones_pack_value:
+    # Choose the value(amount of Gemstones) of each Gemstone pack in the pool. 
+    # If set to 0 Gems will not appear in the pool
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 2500
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  diamonds_pack_value:
+    # Choose the value(amount of diamonds) of each diamond pack in the pool. 
+    # If set to 0 Diamonds will not appear in the pool
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  titan_blood_pack_value:
+    # Choose the value(amount of Titan blood) of each Titan blood pack in the pool. 
+    # If set to 0 Titan blood will not appear in the pool
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 50
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  nectar_pack_value:
+    # Choose the value(amount of Nectar) of each Nectar pack in the pool. 
+    # If set to 0 Nectar will not appear in the pool
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 50
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ambrosia_pack_value:
+    # Choose the value(amount of Ambrosia) of each Ambrosia pack in the pool. 
+    # If set to 0 Ambrosia will not appear in the pool
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 50
+    2: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  filler_helper_percentage:
+    # Choose the percentage of filler items in the pool that will be to helpers instead. 
+    # Helpers give a boost to your max Health or boost the chance of obtaining rare Boons.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  max_health_helper_percentage:
+    # Choose the percentage of helper items that will boost your max health. 
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    40: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  initial_money_helper_percentage:
+    # Choose the percentage of helper items that will boost your initial money by 25 each run.
+    # This gets capped by the percentage being left from the MaxHealthHelpers. 
+    # What percentage remains from this and the MaxHealthHelpers will give you items that boost the 
+    # rarity of the boons obtained in runs
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    30: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  filler_trap_percentage:
+    # Choose the percentage of filler items in the pool that will be traps instead. 
+    # Traps diminish your money or health during a run.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    10: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  reverse_order_em:
+    # When true the order in which extreme meassures applied is reverse 
+    # so level 1 is applied to Hades, instead to Meg/The Furies). 
+    # For a more balanced experience
+    false: 0
+    true: 50
+
+  ignore_greece_deaths:
+    # If deaths on Greece are ignored for deathlink. Leave off for the memes.
+    false: 0
+    true: 50
+
+  store_give_hints:
+    # If seeing an item on the House Contractor's shop/Fated List of Prophecies 
+    # should give a hint for it on the multiworld.
+    false: 0
+    true: 50
+
+  automatic_rooms_finish_on_hades_defeat:
+    # If defeating Hades should give all room clears on Room based location mode 
+    # or all rooms clears with the equipped weapon on Room weapon based location mode.
+    false: 50
+    true: 0
+
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    false: 50
+    true: 0

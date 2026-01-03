@@ -1,0 +1,100 @@
+﻿name: SivFE8
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Siv's FE8 settings. Updated 2025-10-01.
+
+game: Fire Emblem Sacred Stones
+requires:
+  version: 0.6.3 # Version of Archipelago required for this yaml to work as expected.
+
+Fire Emblem Sacred Stones:
+  ################
+  # Game Options #
+  ################
+  progression_balancing: normal
+  accessibility: full
+  player_unit_rando: true
+  player_unit_monsters: true
+  super_demon_king: false
+  smooth_level_caps: true
+  min_endgame_level_cap: 40
+  required_holy_weapons: 3
+  exclude_latona: true
+  easier_5x: true
+  unbreakable_regalia: true
+  tower_enabled: false
+  ruins_enabled: false
+  shuffle_skirmish_tables: true
+
+  # - Vanilla: Only Thieves, Assassins and Rogues can use lockpicks.
+  # - Global Lockpicks: All characters can use lockpicks.
+  # - Global Rogue pick: In addition to global lockpicks, all characters can use
+  #   the Rogue class's "Pick" command.
+  lockpick_usability: vanilla
+
+  normalize_genders: true
+  death_link: off
+
+  # Randomizes growth rates.
+  # 
+  # - Redistribute: Preserves growth total, possibly adjusted (positive or negative)
+  #   between GrowthRandoMin and GrowthRandoMax.
+  # - Delta: Adjusts vanilla growths by amounts between GrowthRandoMin and GrowthRandoMax
+  # - Full Random: Growths are assigned randomly between GrowthRandoMin and GrowthRandoMax
+  # 
+  # GrowthRandoMin and GrowthRandoMax control the min/max of the adjustment.
+  growth_rando: redistribute
+  growth_rando_min: 10
+  growth_rando_max: 110
+  music_rando: vanilla
+
+  # Set the goal of the game.
+  # 
+  # - Defeat Fomortiis: Defeat the usual final boss, which can take a long time.
+  # - Clear Valni: Clear the 8th floor of the Tower of Valni. Implies Enable Tower.
+  #   Recommended for short- to medium-length games.
+  # - Defeat Tirado: Clear Chapter 8. Recommended for short games.
+  # - Clear Lagdou: Clear the 10th floor of the Lagdou Ruins. Implies Enable Ruins.
+  # 
+  # Note that this option only change which check is considered the goal and
+  # does not affect progression logic at all.
+  goal: defeatformortiis
+
+  ###########################
+  # Item & Location Options #
+  ###########################
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  plando_items:
+    # Generic items plando.
+    []

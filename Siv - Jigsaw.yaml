@@ -1,0 +1,195 @@
+﻿# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: SivJigsaw
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default Jigsaw Template
+
+game: Jigsaw
+requires:
+  version: 0.6.3 # Version of Archipelago required for this yaml to work as expected.
+
+Jigsaw:
+  ################
+  # Game Options #
+  ################
+  progression_balancing: normal
+  accessibility: full
+
+  ###############################
+  # Important options: gameplay #
+  ###############################
+  number_of_pieces: random-range-50-250
+  grid_type:
+    square: 75
+    hexagonal: 25
+    meme_one_row: 0
+    meme_one_column: 0
+
+  # no_rotation, per_90_degrees, per_180_degrees
+  rotations:
+    no_rotation: 75
+    per_90_degrees: 0
+    per_180_degrees: 25
+
+  ############################
+  # Important options: image #
+  ############################
+  orientation_of_image:
+    # If you're using a custom image, select the orientation here.
+    # This affects the shape of the puzzle pieces.
+    square: 0
+    landscape: 50
+    portrait: 0
+
+  which_image:
+    # Only if you selected the landscape orientation option.
+    # This option decides which landscape picture will be set for you. Don't worry, you can change it in the game.
+    # Every number corresponds to a set image. See the images here: https://jigsaw-ap.netlify.app/images.html
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 54
+    random: 50
+    random-low: 0
+    random-high: 0
+
+  ####################################################
+  # Optional options: extra pieces, items and checks #
+  ####################################################
+  percentage_of_extra_pieces: random-range-5-30
+  number_of_piece_bundles: random-range-50-300
+  minimum_number_of_pieces_per_bundle: 2
+  add_fillers: 'true'
+  # % of filler items in the multiworld
+  percentage_fillers_itempool: 0
+  checks_out_of_logic: 1
+
+  #################################
+  # Optional options: piece order #
+  #################################
+  piece_order_type:
+    # This option affects the order in which you receive puzzle piece types.
+    # This is prioritized over the Piece Order option.
+    # 
+    # random_order: no order is followed
+    # 
+    # corners_edges_normal: you will first get all corner pieces, then edge pieces, then normal pieces
+    # (...)
+    # 
+    # four_parts and four_parts_non_rotated:
+    # The board will be divided into four (rotated) quadrants.
+    # You will first get all pieces of one of the first quadrant, then for the second, etc.
+    # This makes it so that you're basically starting and finishing a section four times in your playthrough.
+    # This may be nice for big puzzles, it decreases the pressure at the start, while making the ending more interesting.
+    # four_parts_non_rotated always gives axis-aligned quadrants (rectangular grid-like splits, like a +).
+    # four_parts can involve rotated splits, so the quadrants may be split like + or × etc.
+    random_order: 50
+    corners_edges_normal: 0
+    normal_edges_corners: 0
+    edges_normal_corners: 0
+    corners_normal_edges: 0
+    normal_corners_edges: 0
+    edges_corners_normal: 0
+    four_parts: 0
+    four_parts_non_rotated: 0
+
+  strictness_piece_order_type:
+    # This option determines how strictly the above piece type order is followed.
+    # 1 means it is barely followed, 100 means it is followed in the strictest way possible.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
+    100: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  piece_order:
+    # This option affects the order in which you receive puzzle pieces.
+    # random_order: pieces are added in random order with no extra constraints
+    # every_piece_fits: every piece you receive, will be able to merge with another piece
+    # least_merges_possible: you will receive pieces in an order that gives the least number of possible merges
+    random_order: 60
+    every_piece_fits: 30
+    least_merges_possible: 10
+
+  # % chance the above rule is followed
+  strictness_piece_order: 90
+
+  #######################################
+  # Optional options: traps & deathlink #
+  #######################################
+  # 0 to 500, default 0
+  starting_fake_pieces: 0
+
+  # 0 to 50, default 0
+  number_of_fake_piece_bundles: 0
+  # 1 to 10, default 1
+  impact_of_fake_piece_bundles: 1
+
+  # 0 to 500, default 0
+  number_of_rotate_traps: 5
+
+  # 1 to 10, default 1
+  # # of clusters the rorate trap affects
+  impact_of_rotate_traps: 1
+
+  # 0 to 500, default 0
+  number_of_swap_traps: 5
+
+  impact_of_swap_traps: 1
+
+  # 1 to 10, 0 disabled
+  death_link: 0
+
+  ###########################
+  # Optional options: other #
+  ###########################
+  enable_clues: 'true'
+
+  # % of the frame that the puzzle fills
+  total_size_of_image: 85
+
+  ###########################
+  # Item & Location Options #
+  ###########################
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  plando_items:
+    # Generic items plando.
+    []

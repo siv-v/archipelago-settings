@@ -1,0 +1,428 @@
+﻿name: SivKanto
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Siv's FRLG template. Updated 2026-01-03.
+
+game: Pokemon FireRed and LeafGreen
+requires:
+  version: 0.6.5 # Version of Archipelago required for this yaml to work as expected.
+  game:
+    Pokemon FireRed and LeafGreen: 1.0.1 # Version of the world required for this yaml to work as expected.
+
+Pokemon FireRed and LeafGreen:
+  ################
+  # Game Options #
+  ################
+  progression_balancing: normal
+  accessibility: full
+
+  # we hate charizard here
+  game_version: leafgreen
+  goal: champion
+
+  # Set whether to skip the Elite Four fights and go straight to the Champion fight when entering the Pokemon League.
+  # thought it might be interesting for this to occasionally be a surprise
+  skip_elite_four:
+    'false': 85
+    'true': 15
+
+  kanto_only: false
+
+  random_starting_town: true
+
+  starting_town_blacklist:
+    # Prevents certain towns from being chosen as your random starting town.
+    # 
+    # Has no effect if the starting town is not randomized.
+    - Cinnabar Island
+
+  shuffle_pokemon_centers: false
+  # This one is fun but the tracker is weird with it so off for now
+  shuffle_gyms: false
+  shuffle_marts: false
+  shuffle_harbors: false
+  shuffle_buildings: off
+  shuffle_dungeons: off
+  shuffle_interiors: false
+  shuffle_warp_tiles: off
+  shuffle_dropdowns: off
+  mix_entrance_warp_pools:
+    # Shuffle the selected entrances/warps into a mixed pool instead of separate ones. Has no effect on pools whose
+    # entrances/warps aren't shuffled. Entrances/warps can only be mixed with other entrance/warps that have the same
+    # restrictions. Can specify "All" as a shortcut for adding in all entrances/warps that can be mixed.
+    # 
+    # The avaialble pools that can be mixed are:
+    # - Gyms
+    # - Marts
+    # - Harbors
+    # - Buildings
+    # - Dungeons
+    # - Interiors
+    []
+
+  decouple_entrances_warps: false
+  randomize_fly_destinations: off
+  fly_destination_plando:
+    # Plando what warp certain fly unlocks will take you to.
+    # 
+    # For example "Pallet Town Fly Destination": "Player's House" will make it so that unlocking the Pallet Town fly
+    # point will let you fly to in front of the Player's House.
+    # 
+    # A full list of supported warps can be found at:
+    # https://github.com/vyneras/Archipelago/blob/frlg-stable/worlds/pokemon_frlg/docs/fly_plando.md
+    # 
+    # Has no effect if fly destinations aren't randomized.
+    {}
+
+  shuffle_badges: true
+  shuffle_hidden: nonrecurring
+  extra_key_items: true
+  shopsanity: true
+  vending_machines: false
+  prizesanity: true
+  shop_slots: all
+  shop_prices: cheap
+  consistent_shop_prices: true
+
+  # 0 to 456
+  trainersanity: none
+  rematchsanity: false
+  rematch_requirements: gyms
+
+  # 0 to 386
+  dexsanity: random-range-100-200
+  famesanity: false
+  shuffle_fly_unlocks:
+    # Shuffles the ability to fly to Pokemon Centers into the pool. Entering the map that normally would unlock the
+    # fly point on the map gives a random item.
+    #
+    # - Off: Fly Unlocks are not shuffled
+    # - Exclude Indigo: Fly Unlocks are shuffled. Indigo Plateau Fly Unlock is vanilla
+    # - All: Fly Unlocks are shuffled
+    'off': 0
+    exclude_indigo: 80
+    all: 20
+
+  pokemon_request_locations: false
+  shuffle_pokedex: shuffle
+  shuffle_running_shoes: start_with
+  shuffle_berry_pouch: true
+  shuffle_tm_case: true
+  shuffle_jumping_shoes: true
+  post_goal_locations: false
+  card_key: vanilla
+  island_passes: progressive
+  fishing_rods: vanilla
+  split_teas:
+    # Splits the Tea item into four different items. Each guard to Saffron City will require a different Tea to pass.
+    # Brock, Misty, and Erika will appear in the Celadon Condominiums after beating them and give you a randomized item.
+    # 
+    # The Tea required to get past each guard are as follows:
+    # - Route 5: Blue Tea
+    # - Route 6: Red Tea
+    # - Route 7: Green Tea
+    # - Route 8: Purple Tea
+    'false': 50
+    'true': 50
+
+  gym_keys:
+    # Adds keys that are needed to enter each of the gyms similar to the Secret Key. Renames the Secret Key to the
+    # Cinnabar Key.
+    # 
+    # Adds seven new locations:
+    # - Item in the Pewter Museum 2F
+    # - Item from Man on a Date at Route 25
+    # - Item in Diglett's Cave B1F
+    # - Item in the Celadon Hotel
+    # - Item in the Safari Zone East Rest House
+    # - Item in the Saffron Dojo
+    # - Item from the Old Man near Viridian Gym
+    'false': 25
+    'true': 75
+
+  itemfinder_required: required
+  flash_required: logic
+  fame_checker_required: true
+  bicycle_requires_jumping_shoes: true
+  acrobatic_bicycle: true
+
+  evolutions_required:
+    # Sets which types of locations and/or access rules that evolutions may be logically required for.
+    ['HM Requirement', "Oak's Aides", 'Dexsanity']
+
+  evolution_methods_required:
+    # Sets which types of evolutions may be logically required.
+    ['Level', 'Level Tyrogue', 'Level Wurmple', 'Evo Item', 'Evo & Held Item', 'Friendship']
+
+  viridian_city_roadblock: open
+  pewter_city_roadblock: any_gym
+
+  modify_world_state:
+    # Set various changes to the world's state that changes how you can access various regions and locations.
+    # 
+    # The valid options and their effects are the following:
+    # - Modify Route 2: Replaces the northmost cuttable tree with a smashable rock
+    # - Remove Cerulean Roadblocks: Removes the policeman and slowpoke that block the exits of the city
+    # - Block Tunnels: Blocks the entrances to the underground tunnels with smashable rocks
+    # - Modify Route 9: Replaces the cuttable tree with a smashable rock
+    # - Modify Route 10: Adds a waterfall to Route 10 that connects the north and south sides
+    # - Block Tower: Blocks the 1F stairs of Pokemon Tower with a ghost battle
+    # - Route 12 Boulders: Adds boulders to Route 12 that block the exits to Route 11 & 13
+    # - Modify Route 12: Adds impassable rocks to Route 12 that prevent surfing around Snorlax
+    # - Modify Route 16: Adds a smashable rock to Route 16 that allows you to bypass the Snorlax
+    # - Open Silph: Moves the Team Rocket Grunt that blocks the entrance to Silph Co.
+    # - Remove Saffron Rockets: Removed the Team Rocket Grunts from Saffron City
+    # - Route 23 Trees: Adds cuttable trees to Route 23 under the sixth checkpoint
+    # - Modify Route 23: Adds a waterfall to Route 23 at the end of the water section
+    # - Victory Road Rocks: Adds smashable rocks to Victory Road that block the floor switches
+    # - Early Gossipers: Removes the requirement to have entered the Hall of Fame from various Famesanity locations
+    # - Total Darkness: Changes dark caves to be completely black and provide no vision without Flash
+    # - Block Vermilion Sailing: Prevents you from sailing to Vermilion City on the Seagallop until you have gotten
+    #                            the S.S. Ticket
+    # - All Elevators Locked: Prevents you from using the elevators in the Celadon Department Store and Silph Co. until
+    #                         you have gotten the Lift Key
+    - Remove Cerulean Roadblocks
+    - Modify Route 10
+    - Open Silph
+    - Modify Route 16
+    - Remove Saffron Rockets
+    - Block Tower
+    - Block Vermilion Sailing
+    - Block Tunnels
+  
+  additional_dark_caves:
+    # Set additional caves to be dark caves, potentially requiring Flash to navigate them.
+    # 
+    # The caves that can be turned into dark caves are:
+    # - Mt. Moon
+    # - Diglett's Cave
+    # - Victory Road
+    []
+
+  remove_badge_requirement:
+    # Removes the badge requirement to use any of the HMs listed.
+    # 
+    # HMs need to be listed by the move name (e.g. Cut, Fly, Surf, etc.).
+    - Fly
+
+  # 0 to 50, default 5, vanilla 10
+  oaks_aide_route_2: 5
+
+
+  # 0 to 50, default 10, vanilla 20
+  oaks_aide_route_10: 10
+  
+  # 0 to 50, default 15, vanilla 30
+  oaks_aide_route_11: 15
+
+  # 0 to 50, default 20, vanilla 40
+  oaks_aide_route_16: 20
+
+  # 0 to 50, default 25, vanilla 50
+  oaks_aide_route_15: 25
+
+  fossil_count: 3
+
+  viridian_gym_requirement: gyms
+  viridian_gym_count: 4
+  route22_gate_requirement: gyms
+  route22_gate_count: 7
+  route23_guard_requirement: gyms
+  route23_guard_count: 7
+  elite_four_requirement: badges
+  elite_four_count: 7
+  elite_four_rematch_count: 8
+  cerulean_cave_requirement: vanilla
+  cerulean_cave_count: 8
+  level_scaling: spheres_and_distance
+  modify_trainer_levels: 100
+  force_fully_evolved: never
+  wild_pokemon: match_type
+  wild_pokemon_groups: dungeons
+  wild_pokemon_blacklist:
+    # Prevents listed species from appearing in the wild when wild Pokemon are randomized.
+    # 
+    # May be overridden if enforcing other restrictions in combination with this blacklist is impossible.
+    # 
+    # Use "Legendaries" as a shortcut for all legendary Pokemon.
+    - Legendaries
+
+  starters:
+    # Randomizes the starter Pokemon in Professor Oak's Lab.
+    # 
+    # - Vanilla: Starters are unchanged
+    # - Match Base Stats: Starters are replaced with species with approximately the same BST
+    # - Match Type: Starters are replaced with species that share a type with the original
+    # - Match Base Stats and Type: Apply both Match Base Stats and Match Type
+    # - Completely Random: There are no restrictions
+    vanilla: 50
+    match_base_stats: 50
+    match_type: 0
+    match_base_stats_and_type: 0
+    completely_random: 0
+
+  starter_blacklist:
+    # Prevents listed species from appearing as a starter when starters are randomized.
+    # 
+    # May be overridden if enforcing other restrictions in combination with this blacklist is impossible.
+    # 
+    # Use "Legendaries" as a shortcut for all legendary Pokemon.
+    - Legendaries
+
+  trainers: vanilla
+  trainer_blacklist:
+    # Prevents listed species from appearing in trainer's parties when trainer's parties are randomized.
+    # 
+    # May be overridden if enforcing other restrictions in combination with this blacklist is impossible.
+    # 
+    # Use "Legendaries" as a shortcut for all legendary Pokemon.
+    - Legendaries
+
+  legendary_pokemon: vanilla
+  legendary_pokemon_blacklist:
+    # Prevents the listed species from appearing as a legenary Pokemon when legendary Pokemon are randomized.
+    # 
+    # May be overridden if enforcing other restrictions in combination with this blacklist is impossible.
+    # 
+    # Use "Legendaries" as a shortcut for all legendary Pokemon.
+    []
+
+  misc_pokemon: vanilla
+  misc_pokemon_blacklist:
+    # Prevents the listed species from appearing as a miscellaneous Pokemon when miscellaneous Pokemon are randomized.
+    # 
+    # May be overridden if enforcing other restrictions in combination with this blacklist is impossible.
+    # 
+    # Use "Legendaries" as a shortcut for all legendary Pokemon.
+    []
+
+  types: vanilla
+  abilities: vanilla
+  ability_blacklist:
+    # Prevent species from being given these abilities.
+    # 
+    # Has no effect if abilities are not randomized.
+    []
+
+  moves: vanilla
+  move_match_type_bias: 50
+  move_normal_type_bias: 0
+  move_blacklist:
+    # Prevents species from learning these moves via learnsets.
+    # 
+    # Has no effect if moves are not randomized.
+    []
+
+  base_stats: vanilla
+  physical_special_split: true
+  move_types: vanilla
+  damage_categories: vanilla
+  hm_compatibility: vanilla
+  tm_tutor_compatibility: vanilla
+  tm_tutor_moves: false
+  tm_tutor_moves_blacklist:
+    # Prevents TMs and move tutors from teaching these moves.
+    # 
+    # Has no effect if TM and tutor moves are not randomized.
+    []
+
+  reusable_tm_tutors: true
+
+  min_catch_rate: 50
+  all_pokemon_seen: true
+  starting_money: 3000
+  better_shops: false
+  free_fly_location: false
+  free_fly_blacklist:
+    # Prevents certain towns from being chosen as your free fly location.
+    []
+
+  town_map_fly_location: false
+  town_map_fly_blacklist:
+    # Prevents certain towns from being chosen as your town map fly location.
+    []
+
+  remote_items: false
+
+  randomize_music: true
+  randomize_fanfares: false
+  game_options:
+    # Allows you to preset the in game options.
+    # The available options and their allowed values are the following:
+    # 
+    # - Text Speed: Slow, Mid, Fast, Instant
+    # - Turbo Button: Off, A, B, A/B
+    # - Auto Run: Off, On
+    # - Button Mode: Help, L/R, L=A
+    # - Frame: 1-10
+    # - Battle Scene: Off, On
+    # - Battle Style: Shift, Set
+    # - Show Effectiveness: Off, On
+    # - Experience Multiplier: 0-1000 in increments of 10 (0, 10, 20, etc.)
+    # - Experience Distribution: Gen III, Gen VI, Gen VIII
+    # - Sound: Mono, Stereo
+    # - Low HP Beep: Off, On
+    # - Skip Fanfares: Off, On
+    # - Bike Music: Off, On
+    # - Surf Music: Off, On
+    # - Guaranteed Catch: Off, On
+    # - Guaranteed Run: Off, On
+    # - Encounter Rates: Vanilla, Normalized
+    # - Blind Trainers: Off, On
+    # - Skip Nicknames: Off, On
+    # - Item Messages: All, Progression, None
+    {
+      Text Speed: Instant,
+      Auto Run: On,
+      Experience Distribution: Gen VIII,
+      Low HP Beep: Off,
+      Bike Music: Off,
+      Surf Music: Off,
+      Item Messages: Progression,
+      Battle Style: Set,
+      Experience Multiplier: 500,
+      Show Effectiveness: On
+    }
+
+  provide_hints: all
+
+  death_link: false
+
+  ###########################
+  # Item & Location Options #
+  ###########################
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with the specified amount of these items. Example: "Bomb: 1"
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  plando_items:
+    # Generic items plando.
+    []

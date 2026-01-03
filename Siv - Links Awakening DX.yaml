@@ -1,0 +1,199 @@
+﻿# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: SivLA
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Siv's default Links Awakening DX settings. Updated 2025-11-13.
+
+game: Links Awakening DX
+requires:
+  version: 0.6.4 # Version of Archipelago required for this yaml to work as expected.
+
+Links Awakening DX:
+  # Game Options
+  progression_balancing: normal
+  accessibility: full
+
+  # [Normal] Playable without using any tricks or glitches. Can require knowledge from a vanilla playthrough, such as how to open Color Dungeon.
+  # [Hard] More advanced techniques may be required, but glitches are not. Examples include tricky jumps, killing enemies with only pots.
+  # [Glitched] Advanced glitches and techniques may be required, but extremely difficult or tedious tricks are not required. Examples include Bomb Triggers, Super Jumps and Jesus Jumps.
+  # [Hell] Obscure knowledge and hard techniques may be required. Examples include featherless jumping with boots and/or hookshot, sequential pit buffers and unclipped superjumps. Things in here can be extremely hard to do or very time consuming.
+  logic: normal
+
+  # Goal Options
+
+  # [Instruments] The Wind Fish's Egg will only open if you have the required number of Instruments of the Sirens, and play the Ballad of the Wind Fish.
+  # [Seashells] The Egg will open when you bring 20 seashells. The Ballad and Ocarina are not needed.
+  # [Open] The Egg will start pre-opened.
+  goal:
+    instruments: 75
+    seashells: 25
+    open: 0
+
+  # 0 to 8, 8 default
+  instrument_count: 8
+
+  stealing: out_of_logic
+
+  # Shuffles
+
+  # [Original Dungeon] The item will be within its original dungeon
+  # [Own Dungeons] The item will be within a dungeon in your world
+  # [Own World] The item will be somewhere in your world
+  # [Any World] The item could be anywhere
+  # [Different World] The item will be somewhere in another world
+  # [Vanilla] The item will be in its vanilla location in your world
+  shuffle_instruments:
+    # Shuffle Instruments
+    original_dungeon: 0
+    own_dungeons: 20
+    own_world: 30
+    any_world: 30
+    different_world: 10
+    vanilla: 10
+
+  # [Original Dungeon] The item will be within its original dungeon
+  # [Own Dungeons] The item will be within a dungeon in your world
+  # [Own World] The item will be somewhere in your world
+  # [Any World] The item could be anywhere
+  # [Different World] The item will be somewhere in another world
+  shuffle_nightmare_keys:
+    original_dungeon: 10
+    own_dungeons: 40
+    own_world: 30
+    any_world: 20
+    different_world: 0
+
+  shuffle_small_keys:
+    original_dungeon: 75
+    own_dungeons: 25
+    own_world: 0
+    any_world: 0
+    different_world: 0
+
+  shuffle_maps: own_dungeons
+  shuffle_compasses: own_dungeons
+  shuffle_stone_beaks: own_world
+
+  # Warp Points
+  # [Improved] Adds remake style warp screen to the game. Choose your warp destination on the map after jumping in a portal and press B to select.
+  # [Improved Additional] Improved warps, and adds a warp point at Crazy Tracy's house (the Mambo teleport spot) and Eagle's Tower.
+  warps: improved_additional
+
+  # Miscellaneous
+  # I don't know the trade quest - maybe after I learn the game more
+  tradequest: 'false'
+  rooster: 'true'
+
+  # [Local Progression] Forces Tarin's gift to be an item that immediately opens up local checks.
+  # Has little effect in single player games, and isn't always necessary with randomized entrances.
+  # [Bush Breaker] Forces Tarin's gift to be an item that can destroy bushes.
+  # [Any Item] Tarin's gift can be any item for any world
+  tarins_gift: local_progression
+
+  # [Open Mabe] Replaces rock on the east side of Mabe Village with bushes, allowing access to Ukuku Prairie without Power Bracelet.
+  overworld:
+    normal: 25
+    open_mabe: 75
+
+  # [Easy] All of the items hold still for you
+  # [Normal] The vanilla behavior
+  # [Hard] The trade item also moves
+  # [Harder] The items move faster
+  # [Hardest] The items move diagonally
+  # [Impossible] The items move impossibly fast, may scroll on and off the screen
+  trendy_game: hard
+
+  in_game_hints: 'true'
+  nag_messages: 'false'
+  
+  # disables swapping rupees in pool with bombs, arrows, powders, capacity upgrades
+  stabilize_item_pool: 'false'
+
+  quickswap: none
+
+  # [Oracle] Less iframes and health from drops. Bombs damage yourself. Water damages you without flippers. No piece of power or acorn.
+  # [Hero] Switch version hero mode, double damage, no heart/fairy drops.
+  # [One hit KO] You die on a single hit, always.
+  hard_mode: none
+
+  # [Vanilla] Nothing changes, you have to equip the boots to use them
+  # [Bracelet] Holding down the button for the bracelet also activates boots (somewhat like Link to the Past)
+  # [Press A] Holding down A activates boots
+  # [Press B] Holding down B activates boots
+  boots_controls: press_b
+
+  # Experimental
+  experimental_dungeon_shuffle: 'false'
+  experimental_entrance_shuffle: none
+
+  # Visuals & Sound
+  # Sets link's palette
+  # A-D are color palettes usually used during the damage animation and can change based on where you are.
+  link_palette:
+    normal: 20
+    green: 20
+    yellow: 20
+    red: 20
+    blue: 20
+    invert_a: 0
+    invert_b: 0
+    invert_c: 0
+    invert_d: 0
+
+  palette: normal
+  text_shuffle: 'false'
+
+  # [Guess By Name] Foreign items can look like any Link's Awakening item.
+  # [Indicate Progression] Foreign items are either a Piece of Power (progression) or Guardian Acorn (non-progression).
+  foreign_item_icons: guess_by_name
+  ap_title_screen: 'true'
+  gfxmod: 'false'
+
+  # [Vanilla] Regular Music
+  # [Shuffled] Shuffled Music
+  # [Off] No music
+  music: vanilla
+
+  # [Sword] When you pick up a sword, the music changes
+  # [Always] You always have the post-sword music
+  music_change_condition: sword
+  low_hp_beep: slow
+  text_mode: fast
+  no_flash: 'true'
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []

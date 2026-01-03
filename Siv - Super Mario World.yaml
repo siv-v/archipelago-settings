@@ -1,0 +1,165 @@
+﻿# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: SivSMW
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Siv's default Super Mario World settings. Updated 2025-07-13.
+
+game: Super Mario World
+requires:
+  version: 0.6.2 # Version of Archipelago required for this yaml to work as expected.
+
+Super Mario World:
+  # Game Options
+  progression_balancing: normal
+  accessibility: full
+  death_link: 'false'
+  ring_link: 'false'
+  trap_link: 'false'
+  early_climb: 'false'
+
+  # Goal Options
+  goal: bowser
+  bosses_required: 7
+  max_yoshi_egg_cap: random-range-30-60
+  percentage_of_yoshi_eggs: random-range-high-80-100
+
+  # Sanity Options
+  dragon_coin_checks: 'true'
+  moon_checks: 'true'
+  hidden_1up_checks: 'false'
+  bonus_block_checks: 'false'
+  blocksanity: 'false' # Do not turn this on
+
+  # Level Shuffling
+  level_shuffle: 'false'
+  exclude_special_zone: 'false'
+  
+  # How the doors of Bowser's Castle behave
+  # Vanilla: Front and Back Doors behave as vanilla
+  # Fast: Both doors behave as the Back Door
+  # Slow: Both doors behave as the Front Door
+  # "Front Door" rooms depend on the `bowser_castle_rooms` option
+  # "Back Door" only requires going through the dark hallway to Bowser
+  bowser_castle_doors: vanilla
+
+  # Vanilla: You can choose which rooms to enter, as in vanilla
+  # Random Two Room: Two random rooms are chosen
+  # Random Five Room: Five random rooms are chosen
+  # Gauntlet: All eight rooms must be cleared
+  # Labyrinth: Which room leads to Bowser?
+  bowser_castle_rooms: random_two_room
+
+  # None: Bosses are not shuffled
+  # Simple: Four Reznors and the seven Koopalings are shuffled around
+  # Full: Each boss location gets a fully random boss
+  # Singularity: One or two bosses are chosen and placed at every boss location
+  boss_shuffle: none
+
+  # False: Normal Exit goes up, Secret Exit goes right.
+  # True: Normal Exit goes right, Secret Exit goes up.
+  swap_donut_gh_exits: 'false'
+
+  # Junk and Traps
+  # 0-100
+  junk_fill_percentage: 0
+
+  # 0 to 100
+  trap_fill_percentage: 20
+
+  # Trap weights (none, low, medium, or high)
+  
+  # slippery level
+  ice_trap_weight: medium
+  
+  # stun Mario
+  stun_trap_weight: medium
+  
+  # read literature
+  literature_trap_weight: medium
+
+  # low timer
+  timer_trap_weight: low
+
+  # reverse controls
+  reverse_trap_weight: low
+
+  # thwimp spawns above Mario
+  thwimp_trap_weight: none
+
+  # Aesthetics
+  
+  # none, all, progression, or progression_minus_yoshi_eggs
+  display_received_item_popups: progression_minus_yoshi_eggs
+
+  autosave: 'true'
+
+  # slow, vanilla, or fast
+  overworld_speed: fast
+
+  # None: No Music is shuffled
+  # Consistent: Each music track is consistently shuffled throughout the game
+  # Full: Each individual level has a random music track
+  # Singularity: The entire game uses one song for overworld and one song for levels
+  music_shuffle: none
+
+  # None: No SFX are shuffled
+  # Full: Each individual SFX call has a random SFX
+  # Singularity: The entire game uses one SFX for every SFX call
+  sfx_shuffle: none
+
+  mario_palette:
+    # Mario palette color
+    mario: 25
+    luigi: 25
+    wario: 10
+    waluigi: 10
+    geno: 10
+    princess: 10
+    dark: 0
+    sponge: 0
+
+  # Off: Do not shuffle palettes
+  # On Legacy: Uses only the palette sets from the original game
+  # On Curated: Uses custom, hand-crafted palette sets
+  level_palette_shuffle: on_curated
+  overworld_palette_shuffle: on_curated
+
+  # 1 to 99
+  starting_life_count: 5
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []

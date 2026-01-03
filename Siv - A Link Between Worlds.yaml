@@ -1,0 +1,129 @@
+﻿name: SivALBW
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Siv's A Link Between Worlds Template. Updated 2026-01-02.
+
+game: A Link Between Worlds
+requires:
+  version: 0.6.5 # Version of Archipelago required for this yaml to work as expected.
+  game:
+    A Link Between Worlds: 0.1.4 # Version of the world required for this yaml to work as expected.
+
+A Link Between Worlds:
+  progression_balancing: normal
+  accessibility: full
+
+  ################
+  # Game Options #
+  ################
+  logic_mode: normal
+
+  # Randomize Portrats and Pendants among themselves
+  randomize_dungeon_prizes: true
+
+  # Number of Portraits needed to goal
+  # 1 to 7, default 7
+  lorule_castle_requirement: 5
+
+  # vanilla (Power and Wisdom Pendants) or standard (all 3 Pendants)
+  pedestal_requirement: standard
+
+  # vanilla (from Mother MaiaMai), shuffled (in the multiworld), off
+  nice_items: shuffled
+
+  # Super Lamp and Net
+  super_items: true
+  
+  # Harder - Lamp and Net work poorly as weapons
+  lamp_and_net_as_weapons: false
+
+  no_progression_enemies: true
+
+  # At least 1 weapon will be in Ravio's shop
+  assured_weapon: false
+
+  # Shuffles Maiamais into the pool (100 locations)
+  maiamai_mayhem: false
+
+  # closed: All Cracks except the Hyrule Castle Crack (and its pair) remain closed until the Quake Item is found.
+  # open: All Cracks are open from the start of the game, and the Quake Item is not in the item pool.
+  initial_crack_state: open
+
+  # off: Cracks are not shuffled.
+  # cross_world_pairs: Cracks are shuffled, but remain in Hyrule/Lorule pairs.
+  # any_world_pairs: Cracks are shuffled freely, and can lead to the same or opposite world.
+  # mirrored_cross_world_pairs: Same as Cross World Pairs, but each pair's vanilla counterparts will be in a matching pair.
+  # mirrored_any_world_pairs: Same as Any World Pairs, but each pair's vanilla counterparts will be in a matching pair.
+  crack_shuffle: off
+
+  minigames_excluded: true
+
+  skip_big_bomb_flower: false
+  
+  # 0 to 4, default 4
+  trials_required: 3
+  open_trials_door: false
+  bow_of_light_in_castle: false
+
+  # standard: Start with only the standard complimentary Weather Vanes (Link's House & Vacant House)
+  # shuffled: Weather Vane destinations are shuffled into random pairs
+  # convenient: Start with convenient Weather Vanes that don't affect logic
+  # hyrule: Start with the 9 Hyrule Weather Vanes (and Vacant House)
+  # lorule: Start with the 13 Lorule Weather Vanes (and Link's House)
+  # all: Start with all 22 Weather Vanes
+  weather_vanes: convenient
+
+  # Logically expect the player to traverse dark rooms without the Lamp
+  dark_rooms_lampless: false
+
+  # Removes all swords
+  swordless_mode: false
+
+  chest_size_matches_contents: false
+
+  # 2 to 66, default 5
+  treacherous_tower_floors: 5
+
+  # Gives a free purple potion in each bottle
+  purple_potion_bottles: true
+
+  keysy: off
+
+  ###########################
+  # Item & Location Options #
+  ###########################
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with the specified amount of these items. Example: "Bomb: 1"
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  plando_items:
+    # Generic items plando.
+    []

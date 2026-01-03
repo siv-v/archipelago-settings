@@ -1,0 +1,592 @@
+﻿# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default Ocarina of Time Template
+
+game: Ocarina of Time
+requires:
+  version: 0.6.2 # Version of Archipelago required for this yaml to work as expected.
+
+Ocarina of Time:
+  # Game Options
+  progression_balancing: normal
+  accessibility: full
+  plando_items:
+    # Generic items plando.
+    []
+
+  plando_connections:
+    # Generic connections plando. Format is:
+    # - entrance: "Entrance Name"
+    #   exit: "Exit Name"
+    #   direction: "Direction"
+    #   percentage: 100
+    # Direction must be one of 'entrance', 'exit', or 'both', and defaults to 'both' if omitted.
+    # Percentage is an integer from 1 to 100, and defaults to 100 when omitted.
+    []
+
+  death_link: 'false'
+  logic_rules: glitchless
+  logic_no_night_tokens_without_suns_song: 'false'
+
+  logic_tricks:
+    # Set various tricks for logic in Ocarina of Time. 
+    # Format as a comma-separated list of "nice" names: ["Fewer Tunic Requirements", "Hidden Grottos without Stone of Agony"].
+    # A full list of supported tricks can be found at:
+    # https://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/oot/LogicTricks.py
+    []
+
+  # Open
+  # Set the state of Kokiri Forest and the path to Deku Tree.
+  # Open: Neither the forest exit nor the path to Deku Tree is blocked.
+  # Closed Deku: The forest exit is not blocked; the path to Deku Tree requires Kokiri Sword and Deku Shield.
+  # Closed: Path to Deku Tree requires sword and shield. The forest exit is blocked until Deku Tree is beaten.
+  # Closed forest will force child start, and becomes Closed Deku if interior entrances, overworld entrances, warp songs, or random spawn positions are enabled.
+  open_forest:
+    open: 50
+    closed_deku: 33
+    closed: 17
+
+  # Set the state of the Kakariko Village gate for child. The gate is always open as adult.
+  # Open: The gate starts open. Happy Mask Shop opens upon receiving Zelda's Letter.
+  # Zelda: The gate and Mask Shop open upon receiving Zelda's Letter, without needing to show it to the guard.
+  # Closed: Vanilla behavior; the gate and Mask Shop open upon showing Zelda's Letter to the gate guard.
+  open_kakariko:
+      open: 67
+      zelda: 33
+      closed: 0
+
+  open_door_of_time:
+    'false': 35
+    'true': 65
+
+  # Set the state of King Zora, blocking the way to Zora's Fountain.
+  # Open: King Zora starts moved as both ages. Ruto's Letter is removed.
+  # Adult: King Zora must be moved as child, but is always moved for adult.
+  # Closed: Vanilla behavior; King Zora must be shown Ruto's Letter as child to move him as both ages.
+  zora_fountain:
+    open: 40
+    adult: 40
+    closed: 20
+
+  # Set the requirements for access to Gerudo Fortress.
+  # Normal: Vanilla behavior; all four carpenters must be rescued.
+  # Fast: Only one carpenter must be rescued, which is the one in the bottom-left of the fortress.
+  # Open: The Gerudo Valley bridge starts repaired. Gerudo Membership Card is given to start if not shuffled.
+  gerudo_fortress:
+    normal: 0
+    fast: 75
+    open: 25
+
+  # Set the requirements for the Rainbow Bridge.
+  # Open: The bridge is always present.
+  # Vanilla: Bridge requires Shadow Medallion, Spirit Medallion, and Light Arrows.
+  # Stones: Bridge requires a configurable amount of Spiritual Stones.
+  # Medallions: Bridge requires a configurable amount of medallions.
+  # Dungeons: Bridge requires a configurable amount of rewards (stones + medallions).
+  # Tokens: Bridge requires a configurable amount of gold skulltula tokens.
+  # Hearts: Bridge requires a configurable amount of hearts.
+  bridge:
+    open: 0
+    vanilla: 40
+    stones: 0
+    medallions: 40
+    dungeons: 0
+    tokens: 0
+    hearts: 20
+
+  trials: 0
+
+  # World
+  starting_age:
+    child: 75
+    adult: 25
+
+  shuffle_interior_entrances: 'off'
+
+  shuffle_grotto_entrances: 'false'
+
+  # Shuffles dungeon entrances. When enabled, both ages will have access to Fire Temple, Bottom of the Well, and Deku Tree.
+  # Simple: Shuffle dungeon entrances except for Ganon's Castle.
+  # All: Include Ganon's Castle as well.
+  shuffle_dungeon_entrances:
+    'off': 90
+    simple: 10
+    all: 0
+
+  shuffle_overworld_entrances: 'false'
+  owl_drops: 'false'
+
+  # Randomizes warp song destinations.
+  warp_songs:
+    'false': 65
+    'true': 35
+
+  # Randomizes the starting position on loading a save. Consistent between savewarps.
+  spawn_positions: 'off'
+
+  # Limited: Bosses will be limited to the ages that typically fight them.
+  # Full: Bosses may be fought as different ages than usual. Child can defeat Phantom Ganon and Bongo Bongo.
+  shuffle_bosses: 'off'
+
+  # Gather pieces of the Triforce scattered around the world to complete the game.
+  triforce_hunt:
+    'false': 70
+    'true': 30
+
+  # 1 to 80, default 20
+  triforce_goal: random-range-15-30
+  extra_triforce_percentage: random-range-40-70
+
+  bombchus_in_logic: 'true'
+ 
+  # Shortcuts to dungeon bosses are available without any requirements.
+  # If enabled, this will impact the logic of dungeons where shortcuts are available.
+  # Choice: Use the option "dungeon_shortcuts_list" to choose shortcuts.
+  dungeon_shortcuts: 'off'
+
+  dungeon_shortcuts_list:
+    # Chosen dungeons to have shortcuts.
+    []
+
+  # Choose between vanilla and Master Quest dungeon layouts.
+  # Vanilla: All layouts are vanilla.
+  # MQ: All layouts are Master Quest.
+  # Specific: Use the option "mq_dungeons_list" to choose which dungeons are MQ.
+  # Count: Use the option "mq_dungeons_count" to choose a number of random dungeons as MQ.
+  mq_dungeons_mode: vanilla
+
+  mq_dungeons_list:
+    # With MQ dungeons as Specific: chosen dungeons to be MQ layout.
+    []
+
+  # 0 to 12
+  mq_dungeons_count: 0
+
+  # 0 to 3
+  # with Stones bridge
+  bridge_stones: 3
+
+  # 0 to 6
+  # with Medallions Bridge
+  bridge_medallions: random-range-4-6
+  
+  # 0 to 9
+  # with Dungeons bridge
+  bridge_rewards: 9
+
+  # 0 to 100
+  # with Tokens bridge
+  bridge_tokens: random-range-25-50
+
+  # 4 to 20
+  # with Hearts bridge
+  bridge_hearts: random-range-10-20
+
+  # Shuffle
+  
+  # Set where songs can appear.
+  # Song: Songs are shuffled into other song locations.
+  # Dungeon: Songs are placed into end-of-dungeon locations:
+  # - The 8 boss heart containers
+  # - Sheik in Ice Cavern
+  # - Lens of Truth chest in Bottom of the Well
+  # - Ice Arrows chest in Gerudo Training Ground
+  # - Impa at Hyrule Castle
+  # Any: Songs can appear anywhere in the multiworld.
+  shuffle_song_items: any
+
+  # Off: Shops are not randomized at all.
+  # Fixed Number: Shop contents are shuffled, and a specific number of multiworld locations exist in each shop, controlled by the "shop_slots" option.
+  # Random Number: Same as Fixed Number, but the number of locations per shop is random and may differ between shops.
+  shopsanity:
+    'off': 40
+    fixed_number: 40
+    random_number: 20
+
+  # 0 to 4
+  shop_slots: random-range-1-3
+
+  # Controls prices of shop locations.
+  # Normal: Balanced distribution from 0 to 300.
+  # Affordable: Every shop location costs 10 rupees.
+  # Starting Wallet: Prices capped at 99 rupees.
+  # Adult's Wallet: Prices capped at 200 rupees.
+  # Giant's Wallet: Prices capped at 500 rupees.
+  # Tycoon's Wallet: Prices capped at 999 rupees.
+  shopsanity_prices:
+    normal: 65
+    affordable: 15
+    starting_wallet: 0
+    adults_wallet: 30
+    giants_wallet: 0
+    tycoons_wallet: 0
+
+  # Dungeons: Only skulltulas in dungeons are shuffled.
+  # Overworld: Only skulltulas on the overworld (all skulltulas not in dungeons) are shuffled.
+  # All: Every skulltula is shuffled.
+  tokensanity: 'off'
+
+  # Shuffle the items sold by Business Scrubs, and set the prices.
+  # Off: Only the three business scrubs that sell one-time upgrades in vanilla will have items at their vanilla prices.
+  # Low/"Affordable": All scrub prices are 10 rupees.
+  # Regular/"Expensive": All scrub prices are vanilla.
+  # Random Prices: All scrub prices are randomized between 0 and 99 rupees.
+  shuffle_scrubs: 'off'
+
+  # Controls the behavior of the start of the child trade quest.
+  # Vanilla: Malon will give you the Weird Egg at Hyrule Castle.
+  # Shuffle: Malon will give you a random item, and the Weird Egg is shuffled.
+  # Skip Child Zelda: The game starts with Zelda already met, Zelda's Letter obtained, and the item from Impa obtained.
+  shuffle_child_trade:
+    vanilla: 70
+    shuffle: 30
+    skip_child_zelda: 0
+
+  # Dungeons: Only freestanding items in dungeons are shuffled.
+  # Overworld: Only freestanding items in the overworld are shuffled.
+  # All: All freestanding items are shuffled.
+  shuffle_freestanding_items: 'off'
+
+  # Shuffles pots and flying pots which normally contain an item.
+  # Dungeons: Only pots in dungeons are shuffled.
+  # Overworld: Only pots in the overworld are shuffled.
+  # All: All pots are shuffled.
+  shuffle_pots: 'off'
+
+  # Shuffles large and small crates containing an item.
+  # Dungeons: Only crates in dungeons are shuffled.
+  # Overworld: Only crates in the overworld are shuffled.
+  # All: All crates are shuffled.
+  shuffle_crates: 'off'
+
+  # Cows give items when Epona's Song is played.
+  shuffle_cows: 'true'
+
+  # Beehives drop an item when destroyed by an explosion, the Hookshot, or the Boomerang.
+  shuffle_beehives: 'false'
+
+  # Shuffle Kokiri Sword into the item pool.
+  shuffle_kokiri_sword:
+    'false': 25
+    'true': 75
+
+  # Shuffle the Fairy Ocarina and Ocarina of Time into the item pool.
+  shuffle_ocarinas:
+    'false': 25
+    'true': 75
+
+  # Shuffle the Gerudo Membership Card into the item pool.
+  shuffle_gerudo_card:
+    'false': 25
+    'true': 75
+
+  # Adds a pack of 10 beans to the item pool and changes the bean salesman to sell one item for 60 rupees.
+  shuffle_beans:
+    'false': 25
+    'true': 75
+
+  # Shuffle the items sold by Medigoron and the Haunted Wasteland Carpet Salesman.
+  shuffle_medigoron_carpet_salesman: 'false'
+
+  # Shuffles the purple rupees received from the Zora's River frogs.
+  shuffle_frog_song_rupees: 'false'
+
+  # Dungeon Items
+    # Control where to shuffle dungeon maps and compasses.
+    # Remove: There will be no maps or compasses in the itempool.
+    # Startwith: You start with all maps and compasses.
+    # Vanilla: Maps and compasses remain vanilla.
+    # Dungeon: Maps and compasses are shuffled within their original dungeon.
+    # Regional: Maps and compasses are shuffled only in regions near the original dungeon.
+    # Overworld: Maps and compasses are shuffled locally outside of dungeons.
+    # Any Dungeon: Maps and compasses are shuffled locally in any dungeon.
+    # Keysanity: Maps and compasses can be anywhere in the multiworld.
+  shuffle_mapcompass:
+    remove: 0
+    startwith: 60
+    vanilla: 0
+    dungeon: 0
+    regional: 0
+    overworld: 0
+    any_dungeon: 30
+    keysanity: 10
+
+  shuffle_smallkeys:
+    # Control where to shuffle dungeon small keys.
+    # Remove/"Keysy": There will be no small keys in the itempool. All small key doors are automatically unlocked.
+    # Vanilla: Small keys remain vanilla. You may start with extra small keys in some dungeons to prevent softlocks.
+    # Dungeon: Small keys are shuffled within their original dungeon.
+    # Regional: Small keys are shuffled only in regions near the original dungeon.
+    # Overworld: Small keys are shuffled locally outside of dungeons.
+    # Any Dungeon: Small keys are shuffled locally in any dungeon.
+    # Keysanity: Small keys can be anywhere in the multiworld.
+    remove: 0
+    vanilla: 0
+    dungeon: 0
+    regional: 0
+    overworld: 0
+    any_dungeon: 0
+    keysanity: 50
+
+  shuffle_hideoutkeys:
+    # Control where to shuffle the Thieves' Hideout small keys.
+    # Vanilla: Hideout keys remain vanilla.
+    # Regional: Hideout keys are shuffled only in the Gerudo Valley/Desert Colossus area.
+    # Overworld: Hideout keys are shuffled locally outside of dungeons.
+    # Any Dungeon: Hideout keys are shuffled locally in any dungeon.
+    # Keysanity: Hideout keys can be anywhere in the multiworld.
+    vanilla: 0
+    regional: 0
+    overworld: 0
+    any_dungeon: 0
+    keysanity: 50
+
+  # Control where to shuffle boss keys, except the Ganon's Castle Boss Key.
+  # Remove/"Keysy": There will be no boss keys in the itempool. All boss key doors are automatically unlocked.
+  # Vanilla: Boss keys remain vanilla. You may start with extra small keys in some dungeons to prevent softlocks.
+  # Dungeon: Boss keys are shuffled within their original dungeon.
+  # Regional: Boss keys are shuffled only in regions near the original dungeon.
+  # Overworld: Boss keys are shuffled locally outside of dungeons.
+  # Any Dungeon: Boss keys are shuffled locally in any dungeon.
+  # Keysanity: Boss keys can be anywhere in the multiworld.
+  shuffle_bosskeys:
+    remove: 0
+    vanilla: 0
+    dungeon: 0
+    regional: 0
+    overworld: 0
+    any_dungeon: 0
+    keysanity: 50
+
+  # Map tells if a dungeon is vanilla or MQ. Compass tells what the dungeon reward is.
+  enhance_map_compass: 'true'
+
+  # Control how to shuffle the Ganon's Castle Boss Key (GCBK).
+  # Remove: GCBK is removed, and the boss key door is automatically unlocked.
+  # Vanilla: GCBK remains vanilla.
+  # Dungeon: GCBK is shuffled within its original dungeon.
+  # Regional: GCBK is shuffled only in Hyrule Field, Market, and Hyrule Castle areas.
+  # Overworld: GCBK is shuffled locally outside of dungeons.
+  # Any Dungeon: GCBK is shuffled locally in any dungeon.
+  # Keysanity: GCBK can be anywhere in the multiworld.
+  # On LACS: GCBK is on the Light Arrow Cutscene, which requires Shadow and Spirit Medallions.
+  # Stones: GCBK will be awarded when reaching the target number of Spiritual Stones.
+  # Medallions: GCBK will be awarded when reaching the target number of medallions.
+  # Dungeons: GCBK will be awarded when reaching the target number of dungeon rewards.
+  # Tokens: GCBK will be awarded when reaching the target number of Gold Skulltula Tokens.
+  # Hearts: GCBK will be awarded when reaching the target number of hearts.
+  shuffle_ganon_bosskey: remove
+
+  # 1 to 6, default 6
+  # Medallions GCBK
+  ganon_bosskey_medallions: 6
+
+  # 1 to 3, default 3
+  # Stones GCBK
+  ganon_bosskey_stones: 3
+
+  # 1 to 9, default 9
+  # Rewards GCBK
+  ganon_bosskey_rewards: 9
+
+  # 1 to 100, default 40
+  # Tokens GCBK
+  ganon_bosskey_tokens: 40
+  
+  # 1 to 20, default 20
+  # Hearts GCBK
+  ganon_bosskey_hearts: 20
+
+  # A key ring grants all dungeon small keys at once, rather than individually.
+  # Choose: Use the option "key_rings_list" to choose which dungeons have key rings.
+  # All: All dungeons have key rings instead of small keys.
+  key_rings: all
+
+  # With key rings as Choose: select areas with key rings rather than individual small keys.
+  key_rings_list:
+    []
+
+  # Timesavers
+  no_escape_sequence: 'true'
+  no_guard_stealth: 'true'
+  no_epona_race: 'true'
+  skip_some_minigame_phases: 'true'
+  complete_mask_quest: 'false'
+  useful_cutscenes: 'false'
+  fast_chests: 'false'
+  free_scarecrow: 'true'
+  fast_bunny_hood: 'true'
+  plant_beans: 'false'
+  
+  # 0 to 7, default 7
+  chicken_count: 3
+
+  # 1 to 10, default 1
+  big_poe_count: 1
+
+  # 1 to 24, default 24
+  # for Shadow Temple
+  fae_torch_count:  24
+
+  # Misc
+  # Changes chest textures and/or sizes to match their contents.
+  # Off: All chests have their vanilla size/appearance.
+  # Textures: Chest textures reflect their contents.
+  # Both: Like Textures, but progression items and boss keys get big chests, and other items get small chests.
+  # Classic: Old behavior of CSMC; textures distinguish keys from non-keys, and size distinguishes importance.
+  correct_chest_appearances: both
+
+  minor_items_as_major_chest: 'true'
+  invisible_chests: 'false'
+
+  correct_potcrate_appearances:  'off'
+
+  # Gossip Stones can give hints about item locations.
+  # None: Gossip Stones do not give hints.
+  # Mask: Gossip Stones give hints with Mask of Truth.
+  # Agony: Gossip Stones give hints wtih Stone of Agony.
+  # Always: Gossip Stones always give hints.
+  hints: a;ways
+  # The Temple of Time altar hints dungeon rewards, bridge info, and Ganon BK info; Ganondorf hints the Light Arrows; Dampe's diary hints a local Hookshot if one exists; Skulltula House locations hint their item.
+  misc_hints: 'false'
+
+  # Choose the hint distribution to use. Affects the frequency of strong hints, which items are always hinted, etc.
+  # Detailed documentation on hint distributions can be found on the Archipelago GitHub or OoTRandomizer.com.
+  # The Async hint distribution is intended for async multiworlds. It removes Way of the Hero hints to improve generation times, since they are not very useful in asyncs.
+  hint_dist: async
+
+  # Randomizes text in the game for comedic effect.
+  # Except Hints: does not randomize important text such as hints, small/boss key information, and item prices.
+  # Complete: randomizes every textbox, including the useful ones.
+  text_shuffle: none
+
+  damage_multiplier: normal
+  deadly_bonks: half
+  no_collectible_hearts: 'false'
+  starting_tod: default
+
+  # Ice arrows can melt red ice and break the mud walls in Dodongo's Cavern.
+  blue_fire_arrows: 'true'
+  
+  # Fixes two broken vanilla drops: deku shield in child Spirit Temple, and magic drop on GTG eye statue.
+  fix_broken_drops: 'true'
+  
+  start_with_consumables: 'false'
+  start_with_rupees: 'false'
+
+  # Item Pool
+  
+  # Changes the number of items available in the game.
+  # Plentiful: One extra copy of every major item.
+  # Balanced: Original item pool.
+  # Scarce: Extra copies of major items are removed. Heart containers are removed.
+  # Minimal: All major item upgrades not used for locations are removed. All health is removed.
+  item_pool_value: balanced
+
+  # Adds ice traps to the item pool.
+  # Off: All ice traps are removed.
+  # Normal: The vanilla quantity of ice traps are placed.
+  # On/"Extra": There is a chance for some extra ice traps to be placed.
+  # Mayhem: All added junk items are ice traps.
+  # Onslaught: All junk items are replaced by ice traps, even those in the base pool.
+  junk_ice_traps:
+    'off': 30
+    normal: 35
+    'on': 35
+    mayhem: 0
+    onslaught: 0
+
+  # Changes the appearance of traps, including other games' traps, as freestanding items.
+  ice_trap_appearance: anything
+
+  adult_trade_start: claim_check
+
+  # Cosmetics
+  default_targeting: hold
+  display_dpad: 'true'
+  dpad_dungeon_menu: 'true'
+  correct_model_colors: 'true'
+  background_music: normal
+  fanfares: normal
+  ocarina_fanfares: 'false'
+  kokiri_color: random_choice
+  goron_color: random_choice
+  zora_color: random_choice
+  silver_gauntlets_color: random_choice
+  golden_gauntlets_color: random_choice
+  mirror_shield_frame_color: random_choice
+  navi_color_default_inner: random_choice
+  navi_color_default_outer: random_choice
+  navi_color_enemy_inner: random_choice
+  navi_color_enemy_outer: random_choice
+  navi_color_npc_inner: random_choice
+  navi_color_npc_outer: random_choice
+  navi_color_prop_inner: random_choice
+  navi_color_prop_outer: random_choice
+
+  # 4 to 20, default 4
+  sword_trail_duration: random-range-4-8
+
+  sword_trail_color_inner: random_choice
+  sword_trail_color_outer: random_choice
+  bombchu_trail_color_inner: random_choice
+  bombchu_trail_color_outer: random_choice
+  boomerang_trail_color_inner: random_choice
+  boomerang_trail_color_outer: random_choice
+  heart_color: random_choice
+  magic_color: random_choice
+  a_button_color: n64_blue
+  b_button_color: n64_green
+  c_button_color: yellow
+  start_button_color: n64_red
+
+  # SFX
+  sfx_navi_overworld: default
+
+  sfx_low_hp: default
+  sfx_menu_cursor: default
+  sfx_menu_select: default
+  sfx_nightfall: default
+
+  sfx_horse_neigh: default
+  sfx_hover_boots: default
+  sfx_ocarina: ocarina
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []

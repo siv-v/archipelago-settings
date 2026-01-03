@@ -1,0 +1,287 @@
+﻿# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+
+name: SivShip
+# Used to describe your yaml. Useful if you have multiple files.
+description: Siv's default Ship of Harkinian settings. Updated 2025-12-21
+
+game: Ship of Harkinian
+requires:
+  version: 0.6.4 # Version of Archipelago required for this yaml to work as expected.
+  game:
+    Ship of Harkinian: 1.0.0 # Version of the world required for this yaml to work as expected.
+
+Ship of Harkinian:
+  ################
+  # Game Options #
+  ################
+  progression_balancing: normal
+  accessibility: full
+
+  ###############
+  # Area Access #
+  ###############
+  closed_forest: off
+  kakariko_gate: open
+  door_of_time: song_only
+  zoras_fountain: closed_as_child
+  sleeping_waterfall: closed
+  jabu_jabu: open
+  lock_overworld_doors: false
+
+  ##################
+  # World Settings #
+  ##################
+  starting_age:
+    child: 50
+    adult: 50
+
+  fortress_carpenters: fast
+
+    # Alters the requirements to open the bridge to Ganon's Castle.
+    # Vanilla - Obtain the Shadow Medallion, Spirit Medallion and Light Arrows.
+    # Always open - No requirements.
+    # Stones - Obtain the specified amount of Spiritual Stones.
+    # Medallions - Obtain the specified amount of medallions.
+    # Dungeon rewards - Obtain the specified total sum of Spiritual Stones or medallions.
+    # Dungeons - Complete the specified amount of dungeons. Dungeons are considered complete after stepping in to the blue warp after the boss.
+    # Tokens - Obtain the specified amount of Skulltula tokens.
+    # Greg - Find Greg the Green Rupee.
+  rainbow_bridge:
+    vanilla: 33
+    always_open: 0
+    stones: 0
+    medallions: 33
+    dungeon_rewards: 0
+    dungeons: 33
+    tokens: 0
+    greg: 0
+
+  rainbow_bridge_stones_required: 3
+  rainbow_bridge_medallions_required: 3
+  rainbow_bridge_dungeon_rewards_required: 9
+  rainbow_bridge_dungeons_required: 5
+  rainbow_bridge_skull_tokens_required: 50
+  rainbow_bridge_greg_modifier: off
+  skip_ganons_trials: true
+  triforce_hunt: false
+  triforce_hunt_pieces_total: 30
+  triforce_hunt_pieces_required_percentage: 60
+
+  #################
+  # Shuffle Items #
+  #################
+  shuffle_skull_tokens: all
+  skulls_sun_song: true
+  shuffle_master_sword: true
+  shuffle_childs_wallet: false
+  shuffle_ocarina_buttons: false
+  shuffle_swim: true
+  shuffle_weird_egg: false
+  shuffle_fishing_pole: false
+  shuffle_deku_stick_bag: false
+  shuffle_deku_nut_bag: false
+  shuffle_freestanding_items: false
+
+  ############################
+  # Shuffle NPCs & Merchants #
+  ############################
+  shuffle_shops: true
+  shuffle_shops_item_amount: 4
+  shuffle_shops_minimum_price: 25
+  shuffle_shops_maximum_price: 250
+  shuffle_fish: false
+  shuffle_scrubs: false
+  shuffle_scrubs_minimum_price: 10
+  shuffle_scrubs_maximum_price: 90
+  shuffle_beehives: false
+  shuffle_cows: false
+  shuffle_pots: false
+  shuffle_crates: off
+  shuffle_trees: false
+  shuffle_merchants: bean_merchant_only
+  shuffle_frog_song_rupees: false
+  shuffle_adult_trade_items: false
+  shuffle_100_gs_reward: false
+  shuffle_boss_souls: off
+  shuffle_fountain_fairies: false
+  shuffle_stone_fairies: false
+  shuffle_bean_fairies: false
+  shuffle_song_fairies: false
+  shuffle_grass: off
+
+  #########################
+  # Shuffle Dungeon Items #
+  #########################
+  shuffle_dungeon_rewards: dungeons
+  maps_and_compasses: start_with
+  ganons_castle_boss_key: 
+    # Vanilla - Ganon's Boss Key will appear in the vanilla location.
+    # Anywhere - Ganon's Boss Key can appear anywhere.
+    # LACS - These settings put the boss key on the Light Arrow Cutscene location, from Zelda in Temple of Time as adult, with differing requirements:
+    # - Vanilla: Obtain the Shadow Medallion and Spirit Medallion.
+    # - Stones: Obtain the specified amount of Spiritual Stones.
+    # - Medallions: Obtain the specified amount of medallions.
+    # - Dungeon rewards: Obtain the specified total sum of Spiritual Stones or medallions.
+    # - Dungeons: Complete the specified amount of dungeons. Dungeons are considered complete after stepping in to the blue warp after the boss.
+    # - Tokens: Obtain the specified amount of Skulltula tokens.
+    vanilla: 100
+    anywhere: 0
+    lacs_vanilla: 0
+    lacs_stones: 0
+    lacs_medallions: 0
+    lacs_dungeon_rewards: 0
+    lacs_dungeons: 0
+    lacs_skull_tokens: 0
+
+  ganons_castle_boss_key_stones_required:
+    # If Ganon's Boss Key is set to stones, this is how many Spiritual Stones are required to open it.
+    # Once the required amount is reached, the boss key will be granted through the Light Arrow cutscene in the Temple of Time.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 3
+    3: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ganons_castle_boss_key_medallions_required:
+    # If Ganon's Boss Key is set to medallions, this is how many medallions are required to open it.
+    # Once the required amount is reached, the boss key will be granted through the Light Arrow cutscene in the Temple of Time.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 6
+    4: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ganons_castle_boss_key_dungeon_rewards_required:
+    # If Ganon's Boss Key is set to dungeon rewards, this is how many dungeon rewards are required to open it.
+    # Once the required amount is reached, the boss key will be granted through the Light Arrow cutscene in the Temple of Time.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 9
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ganons_castle_boss_key_dungeons_required:
+    # If Ganon's Boss Key is set to dungeons, this is how many dungeon completions are required to open it.
+    # Once the required amount is reached, the boss key will be granted through the Light Arrow cutscene in the Temple of Time.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 8
+    5: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ganons_castle_boss_key_skull_tokens_required:
+    # If Ganon's Boss Key is set to tokens, this is how many Gold Skulltula Tokens are required to open it.
+    # Once the required amount is reached, the boss key will be granted through the Light Arrow cutscene in the Temple of Time.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 1
+    # Maximum value is 100
+    50: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  ganons_castle_boss_key_greg_modifier:
+    # If Ganons Castle Boss Key is enabled, Greg will count toward the LACS goal.
+    # Off - Greg won't change the LACS goal requirement.
+    # Reward - Greg will count toward the LACS goal and be considered in the logic.
+    # Wildcard - Greg will count toward the LACS goal but not be considered in logic.
+    'off': 50
+    reward: 0
+    wildcard: 0
+
+  key_rings: true
+
+  ##############
+  # Timesavers #
+  ##############
+  big_poe_target_count: 1
+  skip_child_zelda: true
+  skip_epona_race: true
+  complete_mask_quest: true
+  skip_scarecrows_song: true
+
+  #######################
+  # Additional Features #
+  #######################
+  full_wallets: true
+  bombchu_bag: true
+  bombchu_drops: true
+  blue_fire_arrows: true
+  sunlight_arrows: true
+  infinite_upgrades: progressive
+  skeleton_key:
+    # Adds a new item called the Skeleton Key, it unlocks every door locked by a small key.
+    'false': 50
+    'true': 50
+
+  slingbow_break_beehives: true
+  ice_trap_count: 6
+  ice_trap_filler_replacement: 20
+  
+  ###########################
+  # Item & Location Options #
+  ###########################
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with the specified amount of these items. Example: "Bomb: 1"
+    {}
+
+  start_inventory_from_pool:
+    # Start with the specified amount of these items and don't place them in the world. Example: "Bomb: 1"
+    # 
+    # The game decides what the replacement items will be.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    - LW Deku Theater Mask of Truth
+    - GF HBA 1500 Points
+    - Kak 40 Gold Skulltula Reward
+    - Kak 50 Gold Skulltula Reward
+    - Market Bombchu Bowling First Prize
+    - Market Bombchu Bowling Second Prize
+    - ZR Frogs Ocarina Game
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  plando_items:
+    # Generic items plando.
+    []

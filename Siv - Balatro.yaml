@@ -1,0 +1,224 @@
+﻿# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: SivBalatro
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Siv's default Balatro settings. Updated 2025-07-13.
+
+game: Balatro
+requires:
+  version: 0.6.2 # Version of Archipelago required for this yaml to work as expected.
+
+Balatro:
+  # Game Options
+  progression_balancing: normal
+  accessibility: full
+  
+  # beat_decks: Win with the specified amount of Decks 
+  # unlock_jokers: Unlock the specified amount of Jokers
+  # beat_ante: Beat the specified Ante (can be higher than 8)
+  # beat_decks_on_stake: Win with the specified amount of Decks on the specified Stake (or harder)
+  # win_with_jokers_on_stake: Win with the specified amount of Jokers on the specified Stake (or harder)
+  # beat_unique_decks: Win with the specified amount of unique combinations of Decks and Stakes
+  goal:
+    unlock_jokers: 50
+    beat_decks_on_stake: 50
+
+  # beat_ante only
+  # 1 to 38, default 12
+  ante_win_goal: 12
+
+  # beat_decks or beat_decks_on_stake
+  # 1 to 15, default 4
+  decks_win_goal: random-range-middle-3-8
+
+  # beat_unique_decks only
+  # 1 to 120, default 4
+  unique_deck_win_goal: random-range-middle-3-8
+
+  # unlock_jokers or win_with_jokers_on_stake
+  # 1 to 150, default 75
+  jokers_unlock_goal: random-range-high-50-125
+  
+  # win_with_jokers_on_stake or beat_decks_on_stake
+  required_stake_for_goal: ['Red Stake']
+
+  # all: All decks will be playable. 
+  # choose: Select specific decks to be playable from the options below.
+  # number: Specify how many randomly selected decks will be playable.
+  include_decksMode: number
+
+  # choose decks only
+  include_deckChoice:
+    # Select which decks will be playable in the game. 
+    # This option is only considered if Playable Decks is set to choose.
+    ['Red Deck', 'Blue Deck', 'Yellow Deck', 'Green Deck', 'Black Deck', 'Magic Deck', 'Nebula Deck', 'Ghost Deck', 'Abandoned Deck', 'Checkered Deck', 'Zodiac Deck', 'Painted Deck', 'Anaglyph Deck', 'Plasma Deck', 'Erratic Deck']
+
+  # random decks only
+  # 1 to 15, default 8
+  include_deckNumber: 8
+
+  # unlocked: all stakes are unlocked from the start
+  # vanilla: stakes are progressively unlocked (by beating the previous stake) and in the same order as in the base game
+  # linear: stakes are progressively unlocked (by beating the previous stake) but in a random order
+  # stake_as_item: stakes can be found as items and unlock the stake for every deck
+  # stake_as_item_per_deck: stakes can be found as items but only unlock it for a specific deck
+  stake_unlock_mode:
+    # Decide how stakes are handled by the Randomizer.
+    unlocked: 5
+    vanilla: 15
+    linear: 15
+    stake_as_item: 45
+    stake_as_item_per_deck: 20
+
+  # all: All stakes will be playable. 
+  # choose: Select specific stakes to be playable from the options below.
+  # number: Specify how many randomly selected stakes will be playable.
+  include_stakesMode:
+    all: 75
+    number: 25
+
+
+  # choose stakes only
+  include_stakesList:
+    # Select specific stakes to be playable. 
+    # Example: ['White Stake','Red Stake','Gold Stake']
+    # This will make those stakes playable and remove the other ones from the game.
+    # (Also make sure to capitalize the first letters, it's case sensitive.)
+    # This option is only considered if playable Stakes is set to choose.
+    ['White Stake', 'Red Stake']
+
+  # random stakes only
+  # 1 to 8, default 2
+  include_stakesNumber: random-range-2-5
+
+  # combine jokers into bundles for quicker progress
+  joker_bundles: 'true'
+
+  # 5 to 30, default 10
+  joker_bundle_size: random-range-middle-5-20
+
+  # false - debuff locked Jokers
+  # true - remove locked Jokers
+  remove_or_debuff_jokers: 'true'
+
+  tarot_bundle:
+    individual: 30
+    one_bundle: 70
+    custom_bundles: 0
+
+  custom_tarot_bundles:
+    # Only fuck with this if you really want to. You can define up to 5 custom bundles. You have to 
+    # include every tarot, otherwise it won't work (there is no proper check for this so PLEASE double or triple check yourself). 
+    # If you have Number of AP consumable items set to greater than 1 you also
+    # must include the "Archipelago Tarot". Here is a list of all Tarot cards https://balatrogame.fandom.com/wiki/Tarot_Cards.
+    # The Syntax of this is the following: ['The Fool;The Magician;The High Priestess;The Empress;The Emperor', ...] where the bundles are separated by the commas.
+    # Make sure to use the right symbols.
+    ['The Fool;The Magician;The High Priestess;The Empress;The Emperor', 'The Hierophant;The Lovers', 'The Chariot;Justice;The Hermit;The Wheel of Fortune;Strength;Death', 'The Hanged Man;Temperance;The Devil;The Tower;The Star', 'The Moon;The Sun;Judgement;The World']
+
+  planet_bundle:
+    individual: 30
+    one_bundle: 70
+    custom_bundles: 0
+
+  custom_planet_bundles:
+    # Only fuck with this if you really want to. You can define up to 5 custom bundles. You have to 
+    # include every planet, otherwise it won't work. If you have Number of AP consumable items set to greater than 1 you also
+    # must include the "Archipelago Belt". Here is a list of all Planet cards https://balatrogame.fandom.com/wiki/Planet_Cards.
+    # For the Syntax refer to Custom Tarot Bundles, it's the same here.
+    []
+
+  spectral_bundle:
+    individual: 30
+    one_bundle: 70
+    custom_bundles: 0
+
+  custom_spectral_bundles:
+    # Only fuck with this if you really want to. You can define up to 5 custom bundles. You have to 
+    # include every spectral, otherwise it won't work. If you have Number of AP consumable items set to greater than 1 you also
+    # must include the "Archipelago Spectral". Here is a list of all Planet cards https://balatrogame.fandom.com/wiki/Spectral_Cards.
+    # For the Syntax refer to Custom Tarot Bundles, it's the same here.
+    []
+
+  # false - debuff locked Consumables
+  # true - remove locked Consumables
+  remove_or_debuff_consumables: 'false'
+
+  decks_unlocked_from_start: random-range-low-1-8
+
+  # Which Jokers are supposed to be filler (every Joker not in this list will be considered a progressive item)
+  filler_jokers:
+    []
+
+  # 0 to 300, default 100
+  ap_consumable_items: random-range-low-100-300
+
+  # permanent buffs (like "+1 hand size")
+  # amount of each different type
+  # 0 to 20, default 4
+  permanent_filler: random-range-low-2-10
+
+  # number of AP vouchers
+  # 0 to 150, default 15
+  shop_items: random-range-low-10-50
+
+  # 1 to 50, default 50
+  minimum_price: 1
+
+  # 1 to 100, default 10
+  maximum_price: 10
+
+
+  # How often traps will appear as filler items
+  # no_traps: No traps will appear
+  # low_traps: 1 in 15 filler items will be traps
+  # medium_traps: 1 in 7 filler items will be traps
+  # high_traps: 1 in 2 filler items will be traps
+  # mayhem: Every filler item will be a trap
+  trap_amount:
+    no_traps: 5
+    low_amount: 20
+    medium_amount: 75
+    high_amount: 0
+    mayhem: 0
+
+  deathlink: 'false'
+
+  # allow in-game settings changes
+  forceyaml: 'false'
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []

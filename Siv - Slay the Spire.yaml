@@ -1,0 +1,157 @@
+﻿# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: SivSTS
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Siv's vanilla Slay the Spire settings. Updated 2025-07-13.
+
+game: Slay the Spire
+requires:
+  version: 0.6.2 # Version of Archipelago required for this yaml to work as expected.
+
+Slay the Spire:
+  # Game Options
+  progression_balancing: normal
+  accessibility: full
+  character: ['Ironclad', 'Silent', 'Defect', 'Watcher']
+
+  # 0 to 18 - 0 means all
+  num_chars_goal: 0
+  ascension: 10
+  final_act:
+    'false': 50
+    'true': 50
+
+  downfall: 'false'
+
+  death_link: 0
+  
+  # Whether in a multi character run "Unlock [Char]" items should be shuffled in.
+  # locked_fixed means the unlocked_character option is used to determine which character to start with
+  # locked_random means which character you start with is randomized
+  # unlocked means you start with all characters available
+  lock_characters: locked_random
+  unlocked_character: ''
+
+  use_advanced_characters: 'false'
+  # disabled - does nothing
+  advanced_characters:
+    ironclad:
+      ascension: 5
+      downfall: 0
+      final_act: 1
+    silent:
+      ascension: 5
+      downfall: 0
+      final_act: 1
+    defect:
+      ascension: 5
+      downfall: 0
+      final_act: 1
+    watcher:
+      ascension: 5
+      downfall: 0
+      final_act: 1
+
+
+  # how many characters to generate for
+  # 0 to 17 - 0 disables
+  pick_num_characters: random-range-2-4
+
+  seeded: 'false'
+
+  # Sanities
+
+  # Whether to include reaching new floors as a location.  Adds small amounts of gold as items.
+  include_floor_checks: 'true'
+
+  # Whether to shuffle being able to rest and smith at each campsite per act.  Also adds
+  # new locations at campsites per act.
+  campfire_sanity: 'false'
+
+  # Whether to enable shuffling gold rewards into the multiworld. Adds 27 locations per character
+  gold_sanity:
+    'false': 60
+    'true': 40
+
+  potion_sanity:
+    # Whether to enable shuffling potion drops into the multiworld; adds 9 locations per character.
+    'false': 40
+    'true': 60
+
+  shop_sanity:
+    # Whether to shuffle shop slots into the pool.  Also adds new locations at the shop per slot shuffled.
+    'false': 30
+    'true': 70
+
+  # Shopsanity settings
+  
+  # number of character card slots to shuffle
+  # 0 to 5
+  shop_card_slots: random-range-low-1-5
+  
+  # number of colorless card slots to shuffle
+  # 0 to 2
+  shop_neutral_card_slots: 1
+
+  # number of relic slots to shuffle
+  # 0 to 2
+  shop_relic_slots: 2
+
+  # number of potion slots to shuffle
+  # 0 to 2
+  shop_potion_slots: 2
+
+  # whether the remove option is shuffled
+  # progressive per act
+  shop_remove_slots: 'false'
+
+
+  # How expensive the AP shop items should be. Tiered means costs map to typical costs rarity for the slot.
+  # Progression = Rare, Useful = Uncommon, Filler = Common
+  # Fixed - 15 gold each
+  # Super_Discount_Tiered - 20% of tiered costs
+  # Discount_Tiered - 50% of tiered costs
+  # Tiered - Vanilla price for slot
+  shop_sanity_costs: 
+    discount_tiered: 70
+    tiered: 30
+
+  # Misc
+  chatty_mc: 'true'
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []

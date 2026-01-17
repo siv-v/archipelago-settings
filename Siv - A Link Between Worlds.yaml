@@ -102,7 +102,7 @@ A Link Between Worlds:
 
   start_inventory:
     # Start with the specified amount of these items. Example: "Bomb: 1"
-    {}
+    Pouch: 1
 
   start_hints:
     # Start with these item's locations prefilled into the ``!hint`` command.

@@ -4,9 +4,9 @@
 #     {number} will be replaced with the counter value of the name.
 #     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
 
-name: SivShip
+name: TravisShip
 # Used to describe your yaml. Useful if you have multiple files.
-description: Siv's default Ship of Harkinian settings. Updated 2025-12-21
+description: Siv's default Ship of Harkinian settings. Updated 2026-01-16
 
 game: Ship of Harkinian
 requires:
@@ -50,18 +50,10 @@ Ship of Harkinian:
     # Dungeons - Complete the specified amount of dungeons. Dungeons are considered complete after stepping in to the blue warp after the boss.
     # Tokens - Obtain the specified amount of Skulltula tokens.
     # Greg - Find Greg the Green Rupee.
-  rainbow_bridge:
-    vanilla: 33
-    always_open: 0
-    stones: 0
-    medallions: 33
-    dungeon_rewards: 0
-    dungeons: 33
-    tokens: 0
-    greg: 0
+  rainbow_bridge: medallions
 
   rainbow_bridge_stones_required: 3
-  rainbow_bridge_medallions_required: 3
+  rainbow_bridge_medallions_required: 5
   rainbow_bridge_dungeon_rewards_required: 9
   rainbow_bridge_dungeons_required: 5
   rainbow_bridge_skull_tokens_required: 50
@@ -75,7 +67,7 @@ Ship of Harkinian:
   # Shuffle Items #
   #################
   shuffle_skull_tokens: all
-  skulls_sun_song: true
+  skulls_sun_song: false
   shuffle_master_sword: true
   shuffle_childs_wallet: false
   shuffle_ocarina_buttons: false
@@ -233,7 +225,7 @@ Ship of Harkinian:
 
   slingbow_break_beehives: true
   ice_trap_count: 6
-  ice_trap_filler_replacement: 20
+  ice_trap_filler_replacement: 5
   
   ###########################
   # Item & Location Options #
@@ -248,7 +240,7 @@ Ship of Harkinian:
 
   start_inventory:
     # Start with the specified amount of these items. Example: "Bomb: 1"
-    {}
+    - Prelude of Light: 1
 
   start_inventory_from_pool:
     # Start with the specified amount of these items and don't place them in the world. Example: "Bomb: 1"
@@ -266,10 +258,6 @@ Ship of Harkinian:
 
   exclude_locations:
     # Prevent these locations from having an important item.
-    - LW Deku Theater Mask of Truth
-    - GF HBA 1500 Points
-    - Kak 40 Gold Skulltula Reward
-    - Kak 50 Gold Skulltula Reward
     - Market Bombchu Bowling First Prize
     - Market Bombchu Bowling Second Prize
     - ZR Frogs Ocarina Game

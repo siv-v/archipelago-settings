@@ -47,11 +47,11 @@ Celeste (Open World):
   gemsanity: true
   carsanity: false
   roomsanity:
-    'false'w: 95
+    'false': 95
     'true': 5
 
   # todo: set up settings file that only includes C-Side goldens
-  include_goldens: false
+  include_goldens: true
   include_core: true
   
   # none, empty_space, or farewell
@@ -65,7 +65,7 @@ Celeste (Open World):
   junk_fill_percentage: 50
 
   # 0 to 100, default 0
-  trap_fill_percentage: 5
+  trap_fill_percentage: 0
   
   # return_to_menu, deaths, new_screens
   trap_expiration_action: deaths
@@ -121,7 +121,7 @@ Celeste (Open World):
 
   start_inventory:
     # Start with these items.
-    'Torches': 1
+    Torches: 1
 
   start_hints:
     # Start with these item's locations prefilled into the ``!hint`` command.
@@ -133,7 +133,21 @@ Celeste (Open World):
 
   exclude_locations:
     # Prevent these locations from having an important item.
-    []
+    - Forsaken City B - Golden Strawberry
+    - Old Site B - Golden Strawberry
+    - Celestial Resort A - Golden Strawberry
+    - Celestial Resort B - Golden Strawberry
+    - Golden Ridge A - Golden Strawberry
+    - Golden Ridge B - Golden Strawberry
+    - Mirror Temple A - Golden Strawberry
+    - Mirror Temple B - Golden Strawberry
+    - Reflection A - Golden Strawberry
+    - Reflection B - Golden Strawberry
+    - The Summit A - Golden Strawberry
+    - The Summit B - Golden Strawberry
+    - Core A - Golden Strawberry
+    - Core B - Golden Strawberry
+    - Farewell - Golden Strawberry
 
   priority_locations:
     # Prevent these locations from having an unimportant item.

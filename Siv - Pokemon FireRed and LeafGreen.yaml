@@ -1,7 +1,7 @@
 ﻿name: SivKanto
 
 # Used to describe your yaml. Useful if you have multiple files.
-description: Siv's FRLG template. Updated 2026-01-03.
+description: Siv's FRLG template. Updated 2026-01-16.
 
 game: Pokemon FireRed and LeafGreen
 requires:
@@ -35,10 +35,11 @@ Pokemon FireRed and LeafGreen:
     # 
     # Has no effect if the starting town is not randomized.
     - Cinnabar Island
+    - Route 10
+    - Route 4
 
   shuffle_pokemon_centers: false
-  # This one is fun but the tracker is weird with it so off for now
-  shuffle_gyms: false
+  shuffle_gyms: true
   shuffle_marts: false
   shuffle_harbors: false
   shuffle_buildings: off
@@ -92,17 +93,7 @@ Pokemon FireRed and LeafGreen:
   # 0 to 386
   dexsanity: random-range-100-200
   famesanity: false
-  shuffle_fly_unlocks:
-    # Shuffles the ability to fly to Pokemon Centers into the pool. Entering the map that normally would unlock the
-    # fly point on the map gives a random item.
-    #
-    # - Off: Fly Unlocks are not shuffled
-    # - Exclude Indigo: Fly Unlocks are shuffled. Indigo Plateau Fly Unlock is vanilla
-    # - All: Fly Unlocks are shuffled
-    'off': 0
-    exclude_indigo: 80
-    all: 20
-
+  shuffle_fly_unlocks: exclude_indigo
   pokemon_request_locations: false
   shuffle_pokedex: shuffle
   shuffle_running_shoes: start_with
@@ -125,23 +116,21 @@ Pokemon FireRed and LeafGreen:
     'false': 50
     'true': 50
 
-  gym_keys:
-    # Adds keys that are needed to enter each of the gyms similar to the Secret Key. Renames the Secret Key to the
-    # Cinnabar Key.
-    # 
-    # Adds seven new locations:
-    # - Item in the Pewter Museum 2F
-    # - Item from Man on a Date at Route 25
-    # - Item in Diglett's Cave B1F
-    # - Item in the Celadon Hotel
-    # - Item in the Safari Zone East Rest House
-    # - Item in the Saffron Dojo
-    # - Item from the Old Man near Viridian Gym
-    'false': 25
-    'true': 75
+  # Adds keys that are needed to enter each of the gyms similar to the Secret Key. Renames the Secret Key to the
+  # Cinnabar Key.
+  # 
+  # Adds seven new locations:
+  # - Item in the Pewter Museum 2F
+  # - Item from Man on a Date at Route 25
+  # - Item in Diglett's Cave B1F
+  # - Item in the Celadon Hotel
+  # - Item in the Safari Zone East Rest House
+  # - Item in the Saffron Dojo
+  # - Item from the Old Man near Viridian Gym
+  gym_keys: true
 
   itemfinder_required: required
-  flash_required: logic
+  flash_required: required
   fame_checker_required: true
   bicycle_requires_jumping_shoes: true
   acrobatic_bicycle: true
@@ -152,7 +141,7 @@ Pokemon FireRed and LeafGreen:
 
   evolution_methods_required:
     # Sets which types of evolutions may be logically required.
-    ['Level', 'Level Tyrogue', 'Level Wurmple', 'Evo Item', 'Evo & Held Item', 'Friendship']
+    ['Level', 'Level Wurmple', 'Evo Item', 'Evo & Held Item', 'Friendship']
 
   viridian_city_roadblock: open
   pewter_city_roadblock: any_gym
@@ -344,7 +333,7 @@ Pokemon FireRed and LeafGreen:
 
   remote_items: false
 
-  randomize_music: true
+  randomize_music: false
   randomize_fanfares: false
   game_options:
     # Allows you to preset the in game options.
@@ -380,7 +369,7 @@ Pokemon FireRed and LeafGreen:
       Surf Music: Off,
       Item Messages: Progression,
       Battle Style: Set,
-      Experience Multiplier: 500,
+      Experience Multiplier: 300,
       Show Effectiveness: On
     }
 

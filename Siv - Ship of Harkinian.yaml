@@ -1,18 +1,12 @@
-﻿# Your name in-game, limited to 16 characters.
-#     {player} will be replaced with the player's slot number.
-#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
-#     {number} will be replaced with the counter value of the name.
-#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
-
-name: TravisShip
+﻿name: SivShip
 # Used to describe your yaml. Useful if you have multiple files.
-description: Siv's default Ship of Harkinian settings. Updated 2026-01-16
+description: Siv's default Ship of Harkinian settings. Updated 2026-01-31
 
 game: Ship of Harkinian
 requires:
-  version: 0.6.4 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.6 # Version of Archipelago required for this yaml to work as expected.
   game:
-    Ship of Harkinian: 1.0.0 # Version of the world required for this yaml to work as expected.
+    Ship of Harkinian: 1.2.0 # Version of the world required for this yaml to work as expected.
 
 Ship of Harkinian:
   ################
@@ -26,11 +20,17 @@ Ship of Harkinian:
   ###############
   closed_forest: off
   kakariko_gate: open
-  door_of_time: song_only
+  door_of_time:
+    song_only: 50
+    open: 50
   zoras_fountain: closed_as_child
   sleeping_waterfall: closed
   jabu_jabu: open
-  lock_overworld_doors: false
+  lock_overworld_doors:
+    false: 75
+    true: 25
+  enable_all_tricks: false
+  tricks_in_logic: []
 
   ##################
   # World Settings #
@@ -66,39 +66,51 @@ Ship of Harkinian:
   #################
   # Shuffle Items #
   #################
+  shuffle_songs: anywhere
   shuffle_skull_tokens: all
   skulls_sun_song: false
+  shuffle_freestanding_items: all
+  shuffle_kokiri_sword: true
   shuffle_master_sword: true
-  shuffle_childs_wallet: false
+  shuffle_childs_wallet:
+    true: 60
+    false: 40
+  shuffle_tycoon_wallet: true
+  shuffle_ocarinas: true
   shuffle_ocarina_buttons: false
   shuffle_swim: true
   shuffle_weird_egg: false
+  shuffle_gerudo_membership_card: true
   shuffle_fishing_pole: false
-  shuffle_deku_stick_bag: false
-  shuffle_deku_nut_bag: false
-  shuffle_freestanding_items: false
+  shuffle_deku_stick_bag: true
+  shuffle_deku_nut_bag: true
+  rocs_feather: true
 
   ############################
   # Shuffle NPCs & Merchants #
   ############################
   shuffle_shops: true
-  shuffle_shops_item_amount: 4
+  shuffle_shops_item_amount: random-range-4-7
   shuffle_shops_minimum_price: 25
-  shuffle_shops_maximum_price: 250
+  shuffle_shops_maximum_price: 350
   shuffle_fish: false
   shuffle_scrubs: false
   shuffle_scrubs_minimum_price: 10
   shuffle_scrubs_maximum_price: 90
   shuffle_beehives: false
   shuffle_cows: false
-  shuffle_pots: false
+  shuffle_pots: off
   shuffle_crates: off
   shuffle_trees: false
   shuffle_merchants: bean_merchant_only
+  shuffle_merchants_minimum_price: 10
+  shuffle_merchants_maximum_price: 90
   shuffle_frog_song_rupees: false
   shuffle_adult_trade_items: false
   shuffle_100_gs_reward: false
-  shuffle_boss_souls: off
+  shuffle_boss_souls:
+    'off': 75
+    'on': 25
   shuffle_fountain_fairies: false
   shuffle_stone_fairies: false
   shuffle_bean_fairies: false
@@ -110,6 +122,9 @@ Ship of Harkinian:
   #########################
   shuffle_dungeon_rewards: dungeons
   maps_and_compasses: start_with
+  small_key_shuffle: anywhere
+  gerudo_fortress_key_shuffle: anywhere
+  boss_key_shuffle: anywhere
   ganons_castle_boss_key: 
     # Vanilla - Ganon's Boss Key will appear in the vanilla location.
     # Anywhere - Ganon's Boss Key can appear anywhere.
@@ -198,7 +213,17 @@ Ship of Harkinian:
     reward: 0
     wildcard: 0
 
-  key_rings: true
+  key_rings: count
+  key_rings_count: random-range-5-9
+  gerudo_fortress_key_ring: true
+  forest_temple_key_ring: true
+  fire_temple_key_ring: true
+  water_temple_key_ring: true
+  spirit_temple_key_ring: true
+  shadow_temple_key_ring: true
+  bottom_of_the_well_key_ring: true
+  gerudo_training_ground_key_ring: true
+  ganons_castle_key_ring: true
 
   ##############
   # Timesavers #
@@ -208,24 +233,31 @@ Ship of Harkinian:
   skip_epona_race: true
   complete_mask_quest: true
   skip_scarecrows_song: true
+  #####################
+  # Item Pool & Hints #
+  #####################
+  item_pool:
+    balanced: 50
+    scarce: 40
+    plentiful: 10
+  ice_trap_count: 6
+  ice_trap_filler_replacement: 10
 
   #######################
   # Additional Features #
   #######################
   full_wallets: true
-  bombchu_bag: true
+  bombchu_bag: progressive_bags
   bombchu_drops: true
   blue_fire_arrows: true
   sunlight_arrows: true
-  infinite_upgrades: progressive
+  infinite_upgrades: condensed_progressive
   skeleton_key:
     # Adds a new item called the Skeleton Key, it unlocks every door locked by a small key.
     'false': 50
     'true': 50
 
   slingbow_break_beehives: true
-  ice_trap_count: 6
-  ice_trap_filler_replacement: 5
   
   ###########################
   # Item & Location Options #
@@ -240,7 +272,7 @@ Ship of Harkinian:
 
   start_inventory:
     # Start with the specified amount of these items. Example: "Bomb: 1"
-    - Prelude of Light: 1
+    Prelude of Light: 1
 
   start_inventory_from_pool:
     # Start with the specified amount of these items and don't place them in the world. Example: "Bomb: 1"

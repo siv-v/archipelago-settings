@@ -10,7 +10,7 @@ description: Siv's default Links Awakening DX settings. Updated 2025-11-13.
 
 game: Links Awakening DX
 requires:
-  version: 0.6.4 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.6 # Version of Archipelago required for this yaml to work as expected.
 
 Links Awakening DX:
   # Game Options

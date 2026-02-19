@@ -1,0 +1,188 @@
+﻿name: SivUnova
+
+description: Default Pokemon Black and White Template
+
+game: Pokemon Black and White
+requires:
+  version: 0.6.6 # Version of Archipelago required for this yaml to work as expected.
+  game:
+    Pokemon Black and White: 0.3.17 # Version of the world required for this yaml to work as expected.
+
+Pokemon Black and White:
+  ################
+  # Game Options #
+  ################
+  progression_balancing: normal
+  accessibility: full
+  version: random
+  goal: 
+    # Determines what your goal is to consider the game beaten.
+    # - **Ghetsis** - Clear the main story by defeating Ghetsis
+    # - **Champion** - Become the champion by defeating Alder
+    # - **Cynthia** - Defeat Cynthia in Undella Town
+    # - **Cobalion** - Reach and defeat/catch Cobalion in Mistralton Cave
+    # - **TM/HM hunt** - Get all TMs and HMs and show them to a scientist at Castelia City's Central Plaza
+    # - **Seven Sages hunt** - Find the Seven Sages
+    # - **Legendary hunt** - Find and defeat/catch all (stationary available) legendary encounters, including Volcarona
+    # - **Pokemon master** - Complete the requirements of all other goals combined
+    ghetsis: 75
+    champion: 25
+
+  randomize_wild_pokemon:
+    # Randomizes wild pokemon encounters.
+    # 
+    # - **Randomize** - Toggles wild pokemon being randomized. Required for any other modifier below.
+    # - **Ensure all obtainable** - Ensures that every pokemon species is obtainable by either catching or evolving. This is automatically checked if **National pokedex** is chosen as the goal.
+    # - **Similar base stats** - Tries to keep every randomized pokemon at a similar base stat total as the replaced encounter.
+    # - **Type themed areas** - Tries to make every pokemon in an area have a certain same type.
+    # - **Area 1-to-1** - Keeps the amount of different encounters and their encounter rate in every area.
+    # - **Merge phenomenons** - Makes rustling grass, rippling water spots, dust clouds, and flying shadows in the same area have only one encounter. Takes priority over **Area 1-to-1**.
+    # - **Prevent rare encounters** - Randomizes the encounter slots with the lowest chance in each area to the same pokemon. Takes priority over **Area 1-to-1**.
+    # 
+    # It is **highly recommended** to include **Prevent rare encounters** if you want to randomize wild pokemon,
+    # else you might find yourself searching for two 1% encounters on every route.
+    - Randomize
+    - Similar base stats
+    - Type themed areas
+    - Area 1-to-1
+    - Prevent rare encounters
+
+  randomize_trainer_pokemon:
+    # Randomizes trainer pokemon.
+    # - **Randomize** - Toggles trainer pokemon being randomized. Required for any modifier below.
+    # - **Similar base stats** - Tries to keep the randomized pokemon at a similar base stat total as the replaced one.
+    []
+
+  pokemon_randomization_adjustments:
+    # Adjust various parameters in various pokemon randomization options (more modifiers are planned).
+    # Any minimum parameter cannot be higher than its corresponding maximum parameter.
+    # - **Stats leniency** - The minimum difference between base stat totals of vanilla and randomized species (for options with **Similar base stats** activated). Allowed values are integers in range 0 to 1530.
+    Stats leniency: 10
+
+  encounter_plando:
+    # Places specific pokemon species at specific locations. Every entry follows the following format:
+    # ```
+    # - map: Name of map
+    #   seasons: Season name(s), optional
+    #   method: Grass/Dark grass/...
+    #   slots: Slot number(s) (0-11), optional
+    #   species: Name(s) of species, random if multiple
+    # ```
+    # Encounter Plando requires the corresponding host setting to be enabled, else it will be ignored for all players.
+    # Be aware that this can lead to generation failures when combined with other restrictive options.
+    # Refer to the Encounter Plando guide of this game for further information.
+    []
+
+  # Determines how gym badges are randomized and what items gym badge locations can have.
+  # - **Vanilla** - Gym badges will stay at their vanilla locations.
+  # - **Shuffle** - Gym badges are shuffled between the gym leaders.
+  # - **Any badge** - Puts the badges into the item pool, while only allowing items that have the word "badge" in their name (which also applies to gym badges of other games/worlds) being placed at gym leaders.
+  # - **Anything** - Gym badges can be anywhere and gym leaders can give any item.
+  shuffle_badges: anything
+
+  # Determines what items NPCs, who would normally give TMs or HMs, can have.
+  # - **Shuffle** - These NPCs will always give a TM or HM from the same world.
+  # - **HM with Badge** - Like "Shuffle", but puts each HM (and TM70 Flash) at a gym leader's badge reward (including the TM from Clay on route 6).
+  # - **Any TM/HM** - These NPCs will give any item that starts with "TM" or "HM" followed by any digit (which also applies to TMs and HMs of other games/worlds).
+  # - **Anything** - No restrictions.
+  shuffle_tm_hm: anything
+
+  dexsanity: random-range-150-300
+
+  season_control: randomized
+
+  adjust_levels:
+    # Adjusts the levels of wild and trainer pokemon in areas that are in AP earlier accessible than in vanilla
+    # to not be significantly higher than in surrounding areas (regardless of randomization).
+    # 
+    # - **Wild** - Normalizes wild pokemon levels, including surfing and fishing encounters.
+    # - **Trainer** - Normalizes trainer pokemon levels, excluding Cynthia.
+    - Wild
+    - Trainer
+
+  modify_encounter_rates: try_normalized_alt
+
+  master_ball_seller:
+    # Adds the possibility to buy or obtain an unlimited amount of Master Balls.
+    # You can select multiple sellers.
+    # If multiple cost modifiers are added, a random cost in range between them (snapped to 500-steps) gets selected.
+    # Adding no cost modifier defaults to 3000.
+    # 
+    # - **Ns Castle** - Repurposes an NPC in N's Castle, who can be found in the same room as the grunt giving Ultra Balls to the player, to give/sell Master Balls to the player.
+    # - **PC** - Adds an option to every PC in Pokémon Centers to buy/obtain Master Balls.
+    # - **Cherens Mom** - Repurposes Cheren's Mom in Nuvema Town to give/sell Master Balls.
+    # - **Undella Mansion seller** - Adds the Master Ball to the pool of items that you can buy from the evolution items seller in the Undella Mansion for a random price. His offers are not affected by any cost modifier.
+    # - **Cost Free** - Makes Master Balls (potentially) cost nothing.
+    # - **Cost x** - Makes Master Balls (potentially) cost x Pokédollars. x can be any number in range of 0 to 30000.
+    - PC
+    - Cost Free
+
+  modify_item_pool:
+    # Modifies what items your world puts into the item pool.
+    # 
+    # - **Useless key items** - Adds one of each unused key item with filler classification.
+    # - **Useful filler** - Main bag items that would normally occur only once can be generated multiple times.
+    # - **Ban bad filler** - Bans niche berries and mail from being generated as filler items.
+    - Useful filler
+    - Ban bad filler
+    - Useless key items
+
+  modify_logic:
+    # Modifies parts of what's logically required for various locations.
+    # 
+    # - **Require Dowsing Machine** - Makes the Dowsing Machine a logical requirement to find hidden items.
+    # - **Prioritize key item locations** - Marks locations, that normally contain key items (which also includes
+    #                                       badge rewards in gyms), as priority locations, making them mostly contain
+    #                                       progressive items.
+    # - **Require Flash** - Makes Mistralton Cave, Challenger's Cave, and the basement of Wellspring Cave
+    #                       logically require TM70 Flash.
+    - Require Dowsing Machine
+    - Prioritize key item locations
+    - Require Flash
+
+  reusable_tms: on
+
+  ###########################
+  # Item & Location Options #
+  ###########################
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with the specified amount of these items. Example: "Bomb: 1"
+    {}
+
+  start_inventory_from_pool:
+    # Start with the specified amount of these items and don't place them in the world. Example: "Bomb: 1"
+    # 
+    # The game decides what the replacement items will be.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  plando_items:
+    # Generic items plando.
+    []

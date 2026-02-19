@@ -50,7 +50,6 @@ Celeste (Open World):
     'false': 95
     'true': 5
 
-  # todo: set up settings file that only includes C-Side goldens
   include_goldens: true
   include_core: true
   

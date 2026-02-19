@@ -1,0 +1,71 @@
+﻿name: SivUNBEATABLE
+description: Siv's UNBEATABLE Arcade settings. Update 2026-02-01.
+
+game: UNBEATABLE Arcade
+requires:
+  version: 0.6.6 # Version of Archipelago required for this yaml to work as expected.
+  game:
+    UNBEATABLE Arcade: 0.2.0 # Version of the world required for this yaml to work as expected.
+
+UNBEATABLE Arcade:
+  ################
+  # Game Options #
+  ################
+  progression_balancing: normal
+
+  accessibility: full
+
+  skill_rating: 7200
+  use_breakout: true
+  min_difficulty: expert
+  max_difficulty: unbeatable
+  completion_percent: 90
+  start_song_count: 3
+  start_char_count: 2
+  use_traps: false
+  silence_amount: 4
+  stealth_amount: 4
+  rainbow_amount: 4
+  zoom_amount: 4
+  crawl_amount: 4
+
+  ###########################
+  # Item & Location Options #
+  ###########################
+  local_items:
+    # Forces these items to be in their native world.
+    # These two songs are known to break some other clients so I'll keep them to myself
+    - "Progressive Song: the adventures of clef the great, the coolest person you've ever met in your entire life, who you are only a speck of dust next to in the grand scheme of things, featuring treble sometimes. an-please, dear god, clef, this is not the final title of the song. we cannot put this on there. first of all, it's too long, and second of all, it's...i mean, this isn't a title. this is barely a collection of words you said out loud. uh yeah why is that a problem. it's...you know what, sure. yeah, okay, label guy, put this on there. literally print every word in our conversation. do you have a maximum length? you don't? what, really? we have other songs on this record. what's that g...you know what? no, it's fine. we're gonna do it. and keep this tape so that when she complains about it i can show her the evidence."
+    - "Progressive Song: yeah yeah yeah yeah yeah yeah yeah yeah [trailer edit]"
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with the specified amount of these items. Example: "Bomb: 1"
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  plando_items:
+    # Generic items plando.
+    []

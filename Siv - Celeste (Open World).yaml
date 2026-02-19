@@ -47,7 +47,7 @@ Celeste (Open World):
   gemsanity: true
   carsanity: false
   roomsanity:
-    'false'w: 95
+    'false': 95
     'true': 5
 
   # todo: set up settings file that only includes C-Side goldens

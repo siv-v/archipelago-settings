@@ -22,7 +22,7 @@ Super Metroid:
     full: 80
     minimal: 20
 
-  start_inventory_removes_from_pool: 'false'
+  start_inventory_removes_from_pool: false
 
   # see varia randomizer page for valid presets
   preset: regular
@@ -30,7 +30,7 @@ Super Metroid:
   # see varia randomizer page for locations
   start_location: landing_site
 
-  remote_items: 'true'
+  remote_items: true
   
   # disable, enable, enable_survive (reserve tanks can save you)
   death_link: disable
@@ -41,8 +41,8 @@ Super Metroid:
     hard: 25
 
   morph_placement: early
-  hide_items: 'false'
-  strict_minors: 'false'
+  hide_items: false
+  strict_minors: false
   
   # 10 to 90, 30 default
   missile_qty: random-range-20-40
@@ -57,14 +57,14 @@ Super Metroid:
   minor_qty: 100 
   
   # ultra_sparse (0-1), sparse (4-6), medium (8-12), vanilla (18)
-  energy_qty: vanilla
+  energy_qty: medium
 
   # 'off', light, or full
-  area_randomization: 'off'
-  area_layout: 'true'
+  area_randomization: off
+  area_layout: true
 
   # randomizes locked doors & adds doors that require certain beams
-  doors_colors_rando: 'true'
+  doors_colors_rando: true
 
   # some doors can't open
   allow_grey_doors:
@@ -73,30 +73,30 @@ Super Metroid:
 
   # Randomize Golden 4 bosses access doors using bidirectional access portals.
   boss_randomization:
-    'false': 33
-    'true': 67
+    'false': 80
+    'true': 20
 
-  escape_rando: 'false'
-  remove_escape_enemies: 'true'
-  fun_combat: 'false'
-  fun_movement: 'false'
-  fun_suits: 'false'
-  layout_patches: 'true'
-  varia_tweaks: 'true'
-  nerfed_charge: 'true'
+  escape_rando: false
+  remove_escape_enemies: true
+  fun_combat: false
+  fun_movement: false
+  fun_suits: false
+  layout_patches: true
+  varia_tweaks: true
+  nerfed_charge: true
   
   gravity_behaviour: progressive
 
-  elevators_speed: 'true'
-  fast_doors: 'true'
-  spin_jump_restart: 'true'
-  rando_speed: 'true'
-  infinite_space_jump: 'true'
-  refill_before_save: 'true'
-  hud: 'true'
-  animals: 'false'
-  no_music: 'false'
-  random_music: 'false'
+  elevators_speed: true
+  fast_doors: true
+  spin_jump_restart: true
+  rando_speed: true
+  infinite_space_jump: true
+  refill_before_save: true
+  hud: true
+  animals: false
+  no_music: false
+  random_music: false
 
   custom_preset:
     # see https://randommetroidsolver.pythonanywhere.com/presets for detailed info on each preset settings
@@ -155,9 +155,9 @@ Super Metroid:
     # Format as a comma-separated list of objective names: ["kill three G4", "collect 75% items"]. The default is ["kill all G4"].
     # A full list of supported objectives can be found at:
     # https://github.com/ArchipelagoMW/Archipelago/blob/main/worlds/sm/variaRandomizer/utils/objectives.py
-    ['kill all G4']
+    - kill all G4
 
-  relaxed_round_robin_cf: 'true'
+  relaxed_round_robin_cf: true
 
   # Item & Location Options
   local_items:

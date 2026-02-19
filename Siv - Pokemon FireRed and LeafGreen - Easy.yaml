@@ -31,6 +31,8 @@ Pokemon FireRed and LeafGreen:
     # 
     # Has no effect if the starting town is not randomized.
     - Cinnabar Island
+    - Route 10
+    - Route 4
 
   shuffle_pokemon_centers: true
   shuffle_gyms: true
@@ -76,7 +78,7 @@ Pokemon FireRed and LeafGreen:
   shuffle_hidden: nonrecurring
 
   extra_key_items: true
-  shopsanity: true
+  shopsanity: false
   vending_machines: false
   prizesanity: true
   shop_slots: 3
@@ -99,7 +101,7 @@ Pokemon FireRed and LeafGreen:
   card_key: vanilla
   island_passes: vanilla
   fishing_rods: progressive
-  split_teas: false
+  split_teas: true
   gym_keys: true
   itemfinder_required: required
   flash_required: logic
@@ -113,7 +115,7 @@ Pokemon FireRed and LeafGreen:
 
   evolution_methods_required:
     # Sets which types of evolutions may be logically required.
-    ['Level', 'Level Tyrogue', 'Level Wurmple', 'Evo Item', 'Evo & Held Item', 'Friendship']
+    ['Level', 'Evo Item', 'Evo & Held Item', 'Friendship']
 
   viridian_city_roadblock: early_parcel
   pewter_city_roadblock: any_gym
@@ -306,16 +308,27 @@ Pokemon FireRed and LeafGreen:
     # - Blind Trainers: Off, On
     # - Skip Nicknames: Off, On
     # - Item Messages: All, Progression, None
-    {}
+    {
+      Text Speed: Instant,
+      Auto Run: On,
+      Experience Distribution: Gen VIII,
+      Low HP Beep: Off,
+      Bike Music: Off,
+      Surf Music: Off,
+      Item Messages: Progression,
+      Battle Style: Set,
+      Experience Multiplier: 1000,
+      Show Effectiveness: On
+    }
 
   provide_hints:
     # Provides an Archipelago Hint for locations that tell you what item they give once you've gotten the in game hint.
     # 
     # This includes the Oak's Aides, Bicycle Shop, Shops, and Pokemon Request Locations.
-    'off': 50
+    'off': 0
     progression: 0
     progression_and_useful: 0
-    all: 0
+    all: 1
 
   death_link:
     # When you die, everyone who enabled death link dies. Of course, the reverse is true too.

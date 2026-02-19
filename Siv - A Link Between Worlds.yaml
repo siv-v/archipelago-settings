@@ -23,7 +23,7 @@ A Link Between Worlds:
 
   # Number of Portraits needed to goal
   # 1 to 7, default 7
-  lorule_castle_requirement: 5
+  lorule_castle_requirement: 6
 
   # vanilla (Power and Wisdom Pendants) or standard (all 3 Pendants)
   pedestal_requirement: standard
@@ -43,11 +43,11 @@ A Link Between Worlds:
   assured_weapon: false
 
   # Shuffles Maiamais into the pool (100 locations)
-  maiamai_mayhem: false
+  maiamai_mayhem: true
 
   # closed: All Cracks except the Hyrule Castle Crack (and its pair) remain closed until the Quake Item is found.
   # open: All Cracks are open from the start of the game, and the Quake Item is not in the item pool.
-  initial_crack_state: open
+  initial_crack_state: closed
 
   # off: Cracks are not shuffled.
   # cross_world_pairs: Cracks are shuffled, but remain in Hyrule/Lorule pairs.
@@ -94,7 +94,7 @@ A Link Between Worlds:
   ###########################
   local_items:
     # Forces these items to be in their native world.
-    []
+    - Progressive Bracelet
 
   non_local_items:
     # Forces these items to be outside their native world.
@@ -114,7 +114,7 @@ A Link Between Worlds:
 
   exclude_locations:
     # Prevent these locations from having an important item.
-    []
+    - Cucco Mini-Dungeon
 
   priority_locations:
     # Prevent these locations from having an unimportant item.

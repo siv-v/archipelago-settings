@@ -1,0 +1,74 @@
+﻿name: SivMC
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Siv's Minecraft template.
+
+game: Minecraft
+requires:
+  version: 0.6.6 # Version of Archipelago required for this yaml to work as expected.
+  game:
+    Minecraft: 0.1.7 # Version of the world required for this yaml to work as expected.
+
+Minecraft:
+  ################
+  # Game Options #
+  ################
+  progression_balancing: normal
+  accessibility: full
+  plando_connections:
+    []
+
+  advancement_goal: 50
+  egg_shards_required: 15
+  egg_shards_available: 30
+  required_bosses: ender_dragon
+  shuffle_structures: false
+  structure_compasses: true
+  combat_difficulty: normal
+  include_hard_advancements: false
+  include_unreasonable_advancements: false
+  include_postgame_advancements: false
+  bee_traps: 0
+  send_defeated_mobs: false
+  death_link: false
+  starting_items:
+    []
+
+  ###########################
+  # Item & Location Options #
+  ###########################
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with the specified amount of these items. Example: "Bomb: 1"
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  plando_items:
+    # Generic items plando.
+    []

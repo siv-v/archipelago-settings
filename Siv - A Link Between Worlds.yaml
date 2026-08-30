@@ -1,100 +1,187 @@
 ﻿name: SivALBW
 
 # Used to describe your yaml. Useful if you have multiple files.
-description: Siv's A Link Between Worlds Template. Updated 2026-01-02.
+description: Siv's A Link Between Worlds Template
 
 game: A Link Between Worlds
 requires:
-  version: 0.6.5 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.7 # Version of Archipelago required for this yaml to work as expected.
   game:
-    A Link Between Worlds: 0.1.4 # Version of the world required for this yaml to work as expected.
+    A Link Between Worlds: 0.3.2 # Version of the world required for this yaml to work as expected.
 
 A Link Between Worlds:
-  progression_balancing: normal
-  accessibility: full
-
   ################
   # Game Options #
   ################
+  progression_balancing: normal
+  accessibility: full
+  death_link: false
+
+  # Logic to use for item placement.
+  # normal: Standard gameplay, no tricky item use or glitches. If unsure, choose this.
+  # hard: Adds tricks that aren't technically glitches. Lamp + Net considered as weapons. No glitches.
+  # glitched: Includes the above plus a selection of easy-to-learn glitches.
+  # adv_glitched: Includes the above plus "advanced" glitches that may be a challenge to master.
+  # hell: Includes every known RTA-viable glitch. Don't choose this.
   logic_mode: normal
 
-  # Randomize Portrats and Pendants among themselves
+  # shuffle sage portraits and pendants
   randomize_dungeon_prizes: true
 
-  # Number of Portraits needed to goal
-  # 1 to 7, default 7
-  lorule_castle_requirement: 6
+  # force dungeon boss items to be progression
+  progression_bosses: false
 
-  # vanilla (Power and Wisdom Pendants) or standard (all 3 Pendants)
+  # 0 to 7
+  lorule_castle_requirement: random-range-5-7
+
+  # Choose which Pendants are required to reach the Master Sword Pedestal.
+  # vanilla: Only the Pendants of Power and Wisdom are required.
+  # standard: All Pendants are required.
   pedestal_requirement: standard
 
-  # vanilla (from Mother MaiaMai), shuffled (in the multiworld), off
-  nice_items: shuffled
+  # Choose how to handle Nice Items.
+  # vanilla: Nice Items are obtained as upgrades from Mother Maiamai.
+  # shuffled: Freely shuffles two progressive copies of each Ravio Item.
+  # off: Removes Nice Items from the game.
+  # upgrades: Shuffles upgrades for each Ravio item, which upgrade your item once you get it.
+  nice_items:
+    vanilla: 45
+    upgrades: 45
+    off: 10
 
-  # Super Lamp and Net
-  super_items: true
+  # Choose how to handle Super Items.
+  # shuffled: Shuffles a second progressive copy of the Lamp and Net into the general item pool.
+  # off: Removes Super Items from the game.
+  # upgrades: Shuffles upgrades for the Lamp and Net, which upgrade your item once you get it.
+  super_items:
+    off: 10
+    upgrades: 90
+
+  # Choose whether to put items on Mother Maiamai. Has no effect if `nice_items` is set to vanilla.
+  # Instead of trading Maiamai for items, Mother Maiamai gives you an item once you have the
+  # required Ravio item and a certain number of Maiamai, controlled by `maiamai_limit`.
+  shuffle_maiamai_rewards:
+    true: 25
+    false: 75
+
+  # 0 to 100 - valid if shuffle_maiamai_rewards is true
+  maiamai_limit: 50
   
-  # Harder - Lamp and Net work poorly as weapons
+  # Choose how to randomize small keys.
+  # own_dungeons: Small keys are found in their own dungeons.
+  # anywhere: (Keyos) Small keys can be found in any world.
+  # remove: (Keysy) Small keys and the doors they lock are removed from the game.
+  small_keys: anywhere
+
+  # Choose how to randomize big keys.
+  # own_dungeons: Big keys are found in their own dungeons.
+  # anywhere: (Keyos) Big keys can be found in any world.
+  # remove: (Keysy) Big keys and the doors they lock are removed from the game.
+  big_keys: anywhere
+
+  # Choose how to randomize compasses.
+  # own_dungeons: Compasses are found in their own dungeons.
+  # anywhere: Compasses can be found in any world.
+  # startwith: Start with the compass to every dungeon.
+  compasses: startwith
+
+  # Treat the base Lamp and Net as damage-dealing weapons?
+  # - The red base Lamp and Net each deal 1/2 the damage of the Forgotten Sword (i.e. they're VERY BAD weapons).
+  # - The blue Super Lamp and Super Net each deal 4 damage (same as MS Lv3) and are always considered weapons, regardless of this setting.
   lamp_and_net_as_weapons: false
 
+  # Removes Enemies from dungeons that are themselves Progression (e.g.: Bawbs, the bomb enemy).
+  # Logic will be adjusted to require the player's items instead.
   no_progression_enemies: true
 
-  # At least 1 weapon will be in Ravio's shop
+  # If enabled at least one weapon is guaranteed to be placed in Ravio's Shop.
   assured_weapon: false
-
-  # Shuffles Maiamais into the pool (100 locations)
+  
+  # Maimai in pool
   maiamai_mayhem: true
 
+  # Choose the initial Crack state:
   # closed: All Cracks except the Hyrule Castle Crack (and its pair) remain closed until the Quake Item is found.
   # open: All Cracks are open from the start of the game, and the Quake Item is not in the item pool.
-  initial_crack_state: closed
+  # progressive: All Cracks except the Hyrule Castle Crack are closed, but the Quake Item and the Bracelets are not in the item pool.
+  #   Instead, there are two Progressive Merge items. The first one you get allows you to merge, while the second one opens the cracks.
+  initial_crack_state: progressive
 
+
+  # Choose how to shuffle Cracks:
   # off: Cracks are not shuffled.
   # cross_world_pairs: Cracks are shuffled, but remain in Hyrule/Lorule pairs.
   # any_world_pairs: Cracks are shuffled freely, and can lead to the same or opposite world.
   # mirrored_cross_world_pairs: Same as Cross World Pairs, but each pair's vanilla counterparts will be in a matching pair.
   # mirrored_any_world_pairs: Same as Any World Pairs, but each pair's vanilla counterparts will be in a matching pair.
-  crack_shuffle: off
+  crack_shuffle:
+    off: 75
+    cross_world_pairs: 15
+    any_world_pairs: 10
 
+  # Excludes the following: Octoball Derby, Dodge the Cuccos, Hyrule Hotfoot, Treacherous Tower, and both Rupee Rushes.
   minigames_excluded: true
 
-  skip_big_bomb_flower: false
-  
-  # 0 to 4, default 4
-  trials_required: 3
+  # Skips the Big Bomb Flower by removing the 5 Big Rocks in Lorule Field.
+  # (Does not affect Lorule Castle Bomb Trial)
+  skip_big_bomb_flower: true
+
+  # 0-4 Lorule Castle trials
+  trials_required: 4
+ 
+  # Makes the Lorule Castle Trials Door automatically open from both sides.
+  # This may require entering Lorule Castle early via the crack.
+  # If turned on, this overrides the Trials Required setting.
   open_trials_door: false
+
+  # Limits the Bow of Light's placement to somewhere in Lorule Castle (including possibly Zelda).
   bow_of_light_in_castle: false
 
+  # Choose Weather Vanes behavior. Logic may require using them to progress.
   # standard: Start with only the standard complimentary Weather Vanes (Link's House & Vacant House)
   # shuffled: Weather Vane destinations are shuffled into random pairs
   # convenient: Start with convenient Weather Vanes that don't affect logic
   # hyrule: Start with the 9 Hyrule Weather Vanes (and Vacant House)
   # lorule: Start with the 13 Lorule Weather Vanes (and Link's House)
   # all: Start with all 22 Weather Vanes
-  weather_vanes: convenient
+  weather_vanes:
+    standard: 0
+    shuffled: 25
+    convenient: 35
+    hyrule: 15
+    lorule: 15
+    all: 10
 
-  # Logically expect the player to traverse dark rooms without the Lamp
-  dark_rooms_lampless: false
+  # If enabled the logic may expect players to cross Dark Rooms without the Lamp.
+  # Not for beginners and those who like being able to see things.
+  dark_rooms_lampless: false # I like being able ot see things
 
-  # Removes all swords
+  # Removes *ALL* Swords from the game.
+  # The Bug Net becomes a required item to play Dead Man's Volley against Yuga Ganon.
   swordless_mode: false
 
+  # Choose the behavior of the Hint Ghosts. (Hint Ghosts in dungeons never appear.)
+  # off: Hint Ghosts do not appear.
+  # always: Hint Ghosts always appear.
+  # glasses: Hint Ghosts appear once you obtain the Hint Glasses item.
+  hint_ghosts: off
+
+  # All chests containing progression items will become large, and others will be made small.
+  # Note: Some large chests will have a reduced hitbox to prevent negative gameplay interference.
   chest_size_matches_contents: false
 
-  # 2 to 66, default 5
-  treacherous_tower_floors: 5
+  # 2-66
+  treacherous_tower_floors: random-range-5-20
 
-  # Gives a free purple potion in each bottle
-  purple_potion_bottles: true
-
-  keysy: off
+  # Fills all Empty Bottles with a free Purple Potion.
+  purple_potion_bottles: false
 
   ###########################
   # Item & Location Options #
   ###########################
   local_items:
     # Forces these items to be in their native world.
-    - Progressive Bracelet
+    []
 
   non_local_items:
     # Forces these items to be outside their native world.
@@ -102,7 +189,13 @@ A Link Between Worlds:
 
   start_inventory:
     # Start with the specified amount of these items. Example: "Bomb: 1"
-    Pouch: 1
+    {}
+
+  start_inventory_from_pool:
+    # Start with the specified amount of these items and don't place them in the world. Example: "Bomb: 1"
+    # 
+    # The game decides what the replacement items will be.
+    {}
 
   start_hints:
     # Start with these item's locations prefilled into the ``!hint`` command.
@@ -114,7 +207,7 @@ A Link Between Worlds:
 
   exclude_locations:
     # Prevent these locations from having an important item.
-    - Cucco Mini-Dungeon
+    []
 
   priority_locations:
     # Prevent these locations from having an unimportant item.

@@ -57,7 +57,10 @@ Super Metroid:
   minor_qty: 100 
   
   # ultra_sparse (0-1), sparse (4-6), medium (8-12), vanilla (18)
-  energy_qty: medium
+  energy_qty:
+    medium: 75
+    vanilla: 20
+    sparse: 5
 
   # 'off', light, or full
   area_randomization: off
@@ -72,9 +75,7 @@ Super Metroid:
     'true': 10
 
   # Randomize Golden 4 bosses access doors using bidirectional access portals.
-  boss_randomization:
-    'false': 80
-    'true': 20
+  boss_randomization: false
 
   escape_rando: false
   remove_escape_enemies: true

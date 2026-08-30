@@ -290,8 +290,6 @@ Ship of Harkinian:
 
   exclude_locations:
     # Prevent these locations from having an important item.
-    - Market Bombchu Bowling First Prize
-    - Market Bombchu Bowling Second Prize
     - ZR Frogs Ocarina Game
 
   priority_locations:

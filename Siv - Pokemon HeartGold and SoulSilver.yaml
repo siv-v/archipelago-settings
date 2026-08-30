@@ -1,0 +1,348 @@
+﻿name: SivJohto
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default Pokemon HeartGold and SoulSilver Template
+
+game: Pokemon HeartGold and SoulSilver
+requires:
+  version: 0.6.7 # Version of Archipelago required for this yaml to work as expected.
+  game:
+    Pokemon HeartGold and SoulSilver: 0.0.4 # Version of the world required for this yaml to work as expected.
+
+Pokemon HeartGold and SoulSilver:
+  ################
+  # Game Options #
+  ################
+  progression_balancing: normal
+  accessibility: full
+  version: soulsilver
+
+  # clear_pokemon_league/defeat_red
+  goal: defeat_red
+
+  death_link: false
+
+  death_link_group: ''
+
+  remote_items: off
+
+  #################
+  # Item Shuffles #
+  #################
+  overworlds: true
+  hiddens: true
+  npc_gifts: true
+  key_items: true
+  hms: true
+  badges: true
+  rods: true
+  bicycle: true
+  running_shoes: false
+  pokedex: true
+  time_items: true
+  sound_items: true
+
+  randomize_fly_items:
+  # Add fly locations to the pool.
+  #
+  # Options:
+  # - kanto
+  # - johto
+  # - pokemon_league
+  # - mount_silver
+  - kanto
+  - johto
+
+  pokegear_card: true
+
+  ##############
+  # Roadblocks #
+  ##############
+  require_restored_power_for_magnet_train: true
+
+  blue_return_viridian_badge_requirement: 7
+
+  ################
+  # Logic Tweaks #
+  ################
+  visibility_hm_logic: true
+
+  dowsing_machine_logic: true
+
+  ############
+  # Starters #
+  ############
+  randomize_starters: true
+
+  require_two_level_evolution_starters: false
+
+  starter_whitelist:
+    # Specify the possible starters that can be randomized.
+    # This has precedence over the blacklist and the require two-level-evolution
+    # species.
+    # This has no effect if starters are not randomized.
+    #
+    # The species names should be entered entirely in lowercase.
+    # Spaces should be replaced by underscores. For example,
+    # Mr. Mime would be mr_mime.
+    #
+    # Note: legendaries is **not** a valid key for this option.
+    []
+
+  starter_blacklist:
+    # Specify the banned starters.
+    # The whitelist has precedence over this.
+    # This has no effect if starters are not randomized.
+    #
+    # The species names should be entered entirely in lowercase.
+    # Spaces should be replaced by underscores. For example,
+    # Mr. Mime would be mr_mime.
+    #
+    # legendaries, all lowercase, will be interpreted as banning all legendary
+    # species.
+    [ legendaries ]
+
+  ###########
+  # Pokémon #
+  ###########
+  randomize_encounters: true
+
+  in_logic_encounters:
+    # - rods: fishing encounters.
+    # - time: tall-grass or fishing encounters which require a specific time of day.
+    # - rock_smash: rock smash encounters.
+    # - sounds: hoenn/sinnoh sounds encounters.
+    [ 'rock_smash', 'sounds', 'time', 'rods' ]
+
+  encounter_species_blacklist:
+    # Specify the banned encounter species.
+    # The whitelist has precedence over this.
+    # This has no effect if starters are not randomized.
+    #
+    # The species names should be entered entirely in lowercase.
+    # Spaces should be replaced by underscores. For example,
+    # Mr. Mime would be mr_mime.
+    #
+    # legendaries, all lowercase, will be interpreted as banning all legendary
+    # species.
+    [ legendaries ]
+
+  dexsanity: random-range-200-300
+
+  dexsanity_mode: req_noprompt
+
+  dexsanity_blacklist:
+    # Specify the species which cannot be dexsanity locations.
+    # The whitelist has precedence over this.
+    #
+    # The species names should be entered entirely in lowercase.
+    # Spaces should be replaced by underscores. For example,
+    # Mr. Mime would be mr_mime.
+    #
+    # legendaries, all lowercase, will be interpreted as banning all legendary
+    # species.
+    [ legendaries ]
+
+  dexsanity_whitelist:
+    # Specify the possible species which can be dexsanity locations.
+    # This has precedence over the dexsanity blacklist.
+    #
+    # The species names should be entered entirely in lowercase.
+    # Spaces should be replaced by underscores. For example,
+    # Mr. Mime would be mr_mime.
+    #
+    # legendaries, all lowercase, will be interpreted as allowing all legendary
+    # species.
+    []
+
+  dexsanity_required:
+    # Specify the species which must be dexsanity locations.
+    # This has precedence over the whitelist and blacklist.
+    #
+    # The species names should be entered entirely in lowercase.
+    # Spaces should be replaced by underscores. For example,
+    # Mr. Mime would be mr_mime.
+    #
+    # legendaries, all lowercase, will be interpreted as banning all legendary
+    # species.
+    []
+
+  in_logic_evolution_methods:
+    # Evolution methods that are in logic.
+    # Valid keys:
+    # - level: all species which require a specific level to evolve.
+    # - happiness: all species which require happiness to evolve.
+    # - use_item: all species which require a specific item to evolve. This includes trade evolutions (item is linking cord).
+    # - held_item: all species which require a held item to evolve.
+    # - time: all species which require being evolved at certain times.
+    # - location: all species which require being evolved at certain locations.
+    # - mildly_annoying: the secondary evolution of nincada, leveling up with a certain species in the party, those requiring certain genders.
+    # - highly_annoying: the evolutions of tyrogue, wurmple, and feebas.
+    #
+    # For species whose evolutions intersect multiple categories, all categories are required for their evolution to be in logic. For example, time and held_item must be specified for happiny's evolution to be in logic. level and mildly_annoying must be specified for the evolution of nincada into shedinja.
+    [ 'held_item', 'use_item', 'location', 'happiness', 'level', 'time' ]
+
+  ap_items_shop_in_ap_helper: true
+
+  reusable_tms: true
+
+  mossy_rock_locations: both
+  icy_rock_locations: both
+
+  magnetic_field_locations: both
+
+  ############
+  # Trainers #
+  ############
+  # 461
+  trainersanity: none
+
+  trainersanity_whitelist:
+    # Specify the possible trainers which can be trainersanity locations.
+    # This has precedence over the trainersanity blacklist.
+    []
+
+  trainersanity_blacklist:
+    # Specify the trainers which cannot be trainersanity locations.
+    # The whitelist has precedence over this.
+    []
+
+  trainersanity_required:
+    # Specify trainers which must be trainersanity locations.
+    # Has precedence over the whitelist and blacklist.
+    []
+
+  randomize_trainer_parties: false
+
+  trainer_party_blacklist:
+    # Specify the banned trainer party species.
+    # The whitelist has precedence over this.
+    # This has no effect if starters are not randomized.
+    #
+    # The species names should be entered entirely in lowercase.
+    # Spaces should be replaced by underscores. For example,
+    # Mr. Mime would be mr_mime.
+    #
+    # legendaries, all lowercase, will be interpreted as banning all legendary
+    # species.
+    [ legendaries ]
+
+  #######
+  # HMs #
+  #######
+  remove_badge_requirements:
+  # Specify which HMs do not require a badge to use outside of battle. This overrides the HM Badge Requirements setting.
+  #
+  # HMs should be provided in the form: "fly", "waterfall", "rock_smash", etc.
+  # "all" specifies that all hms have their requirement removed.
+  - fly
+
+  tmhm_compatibility: none
+
+  hm_reader: itempool
+
+  hm_reader_mode: req_mon
+
+  ###################
+  # Quality of Life #
+  ###################
+  game_options:
+    # Presets in-game options.
+    #
+    # Allowed options and values, with default first:
+    #
+    # text_speed: mid/slow/fast - Sets the text speed
+    # sound: stereo/mono - Sets the shound mode
+    # battle_scene: on/off - Sets whether the battle animations are shown
+    # battle_style: shift/set - Sets whether pokemon can be changed when the opponent's pokemon faints
+    # button_mode: normal/l=a - Sets the button mode
+    # text_frame: 1–20 - Sets the textbox frame. "random" will pick a random frame.
+    # received_items_notification: jingle/nothing/message - Sets the received_items_notification.
+    #
+    # The text_speed, sound, battle_scene, battle_style, button_mode, text_frame, and received_items_notification
+    # options can additionally be modifier in the in-game options menu.
+    battle_scene: 'on'
+    battle_style: shift
+    button_mode: normal
+    received_items_notification: jingle
+    sound: stereo
+    text_frame: 1
+    text_speed: fast
+
+  blind_trainers: true
+
+  hm_cut_ins: false
+
+  fps60: true
+
+  normalize_encounters: true
+
+  instant_text: true
+
+  hold_a_to_advance: false
+
+  always_catch: false
+
+  guaranteed_escape: true
+
+  talk_trainers_without_fight: false
+
+  exp_multiplier: 5
+
+  master_repel: true
+
+  item_notifications_mask:
+    # Which types of items should in-game notifications be shown for.
+    # Valid options are all, progression, useful, and trap.
+    #
+    # This option can also be modified in the in-game options menu.
+    [ 'progression', 'useful' ]
+
+  require_fly_items_for_flight: true
+
+  fast_fishing: true
+
+  ###########################
+  # Item & Location Options #
+  ###########################
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with the specified amount of these items. Example: "Bomb: 1"
+    {}
+
+  start_inventory_from_pool:
+    # Start with the specified amount of these items and don't place them in the world. Example: "Bomb: 1"
+    #
+    # The game decides what the replacement items will be.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  plando_items:
+    # Generic items plando.
+    []

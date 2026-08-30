@@ -38,7 +38,7 @@ Celeste (Open World):
   total_strawberries: random-range-30-100
   
   # 0 to 100, default 80
-  strawberries_required_percentage: random-range-high-50-100
+  strawberries_required_percentage: random-range-60-90
 
   # Location Options
   checkpointsanity: true

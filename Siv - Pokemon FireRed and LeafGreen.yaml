@@ -1,13 +1,13 @@
 ﻿name: SivKanto
 
 # Used to describe your yaml. Useful if you have multiple files.
-description: Siv's FRLG template. Updated 2026-01-16.
+description: Siv's FRLG template.
 
 game: Pokemon FireRed and LeafGreen
 requires:
-  version: 0.6.5 # Version of Archipelago required for this yaml to work as expected.
+  version: 0.6.7 # Version of Archipelago required for this yaml to work as expected.
   game:
-    Pokemon FireRed and LeafGreen: 1.0.1 # Version of the world required for this yaml to work as expected.
+    Pokemon FireRed and LeafGreen: 1.0.4 # Version of the world required for this yaml to work as expected.
 
 Pokemon FireRed and LeafGreen:
   ################
@@ -20,14 +20,8 @@ Pokemon FireRed and LeafGreen:
   game_version: leafgreen
   goal: champion
 
-  # Set whether to skip the Elite Four fights and go straight to the Champion fight when entering the Pokemon League.
-  # thought it might be interesting for this to occasionally be a surprise
-  skip_elite_four:
-    'false': 85
-    'true': 15
-
-  kanto_only: false
-
+  skip_elite_four: true
+  kanto_only: true
   random_starting_town: true
 
   starting_town_blacklist:
@@ -80,9 +74,9 @@ Pokemon FireRed and LeafGreen:
   extra_key_items: true
   shopsanity: true
   vending_machines: false
-  prizesanity: true
+  prizesanity: false
   shop_slots: all
-  shop_prices: cheap
+  shop_prices: standard
   consistent_shop_prices: true
 
   # 0 to 456
@@ -92,9 +86,9 @@ Pokemon FireRed and LeafGreen:
 
   # 0 to 386
   dexsanity: random-range-100-200
-  famesanity: false
+  famesanity: true
   shuffle_fly_unlocks: exclude_indigo
-  pokemon_request_locations: false
+  pokemon_request_locations: true
   shuffle_pokedex: shuffle
   shuffle_running_shoes: start_with
   shuffle_berry_pouch: true
@@ -103,18 +97,17 @@ Pokemon FireRed and LeafGreen:
   post_goal_locations: false
   card_key: vanilla
   island_passes: progressive
-  fishing_rods: vanilla
-  split_teas:
-    # Splits the Tea item into four different items. Each guard to Saffron City will require a different Tea to pass.
-    # Brock, Misty, and Erika will appear in the Celadon Condominiums after beating them and give you a randomized item.
-    # 
-    # The Tea required to get past each guard are as follows:
-    # - Route 5: Blue Tea
-    # - Route 6: Red Tea
-    # - Route 7: Green Tea
-    # - Route 8: Purple Tea
-    'false': 50
-    'true': 50
+  fishing_rods: progressive
+  
+  # Splits the Tea item into four different items. Each guard to Saffron City will require a different Tea to pass.
+  # Brock, Misty, and Erika will appear in the Celadon Condominiums after beating them and give you a randomized item.
+  # 
+  # The Tea required to get past each guard are as follows:
+  # - Route 5: Blue Tea
+  # - Route 6: Red Tea
+  # - Route 7: Green Tea
+  # - Route 8: Purple Tea
+  split_teas: true
 
   # Adds keys that are needed to enter each of the gyms similar to the Secret Key. Renames the Secret Key to the
   # Cinnabar Key.
@@ -171,13 +164,15 @@ Pokemon FireRed and LeafGreen:
     # - All Elevators Locked: Prevents you from using the elevators in the Celadon Department Store and Silph Co. until
     #                         you have gotten the Lift Key
     - Remove Cerulean Roadblocks
+    - Modify Route 9
     - Modify Route 10
     - Open Silph
+    - Route 12 Boulders
     - Modify Route 16
     - Remove Saffron Rockets
     - Block Tower
     - Block Vermilion Sailing
-    - Block Tunnels
+    - Route 23 Trees
   
   additional_dark_caves:
     # Set additional caves to be dark caves, potentially requiring Flash to navigate them.
@@ -225,8 +220,8 @@ Pokemon FireRed and LeafGreen:
   cerulean_cave_count: 8
   level_scaling: spheres_and_distance
   modify_trainer_levels: 100
-  force_fully_evolved: never
-  wild_pokemon: match_type
+  force_fully_evolved: species
+  wild_pokemon: completely_random
   wild_pokemon_groups: dungeons
   wild_pokemon_blacklist:
     # Prevents listed species from appearing in the wild when wild Pokemon are randomized.
@@ -244,7 +239,7 @@ Pokemon FireRed and LeafGreen:
     # - Match Type: Starters are replaced with species that share a type with the original
     # - Match Base Stats and Type: Apply both Match Base Stats and Match Type
     # - Completely Random: There are no restrictions
-    vanilla: 50
+    vanilla: 0
     match_base_stats: 50
     match_type: 0
     match_base_stats_and_type: 0
@@ -258,7 +253,7 @@ Pokemon FireRed and LeafGreen:
     # Use "Legendaries" as a shortcut for all legendary Pokemon.
     - Legendaries
 
-  trainers: vanilla
+  trainers: match_type
   trainer_blacklist:
     # Prevents listed species from appearing in trainer's parties when trainer's parties are randomized.
     # 
@@ -320,13 +315,13 @@ Pokemon FireRed and LeafGreen:
   min_catch_rate: 50
   all_pokemon_seen: true
   starting_money: 3000
-  better_shops: false
+  better_shops: true
   free_fly_location: false
   free_fly_blacklist:
     # Prevents certain towns from being chosen as your free fly location.
     []
 
-  town_map_fly_location: false
+  town_map_fly_location: true
   town_map_fly_blacklist:
     # Prevents certain towns from being chosen as your town map fly location.
     []
@@ -363,12 +358,13 @@ Pokemon FireRed and LeafGreen:
     {
       Text Speed: Instant,
       Auto Run: On,
+      Button Mode: L/R,
+      Battle Style: Set,
       Experience Distribution: Gen VIII,
       Low HP Beep: Off,
-      Bike Music: Off,
-      Surf Music: Off,
+      Bike Music: On,
+      Surf Music: On,
       Item Messages: Progression,
-      Battle Style: Set,
       Experience Multiplier: 300,
       Show Effectiveness: On
     }
